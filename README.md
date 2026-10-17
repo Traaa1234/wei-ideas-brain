@@ -37,7 +37,8 @@ installed or stored on your computer, and it works from a phone.
    `Traaa1234/wei-ideas-brain`, and type `/ingest` (or `/ingest all`). The
    assistant reads the new files, writes the wiki pages, and commits and
    pushes them to `main` before it finishes.
-3. **Read.** Browse `wiki/overview.md` and `wiki/index.md` on GitHub; links
+3. **Read.** Browse `wiki/overview.md`, `wiki/index.md` and `wiki/graph.md`
+   (a map of how your ideas and pages connect, drawn by GitHub) on GitHub; links
    between pages show as `[[page-name]]` (the page is `wiki/<folder>/page-name.md`,
    or use the **Go to file** box, shortcut `t`).
 
@@ -56,6 +57,7 @@ use:
 | `/capture` | Files the lines in `inbox.md`. |
 | `/ask <question>` | Answers from the wiki with citations and offers to save the answer. |
 | `/idea <idea>` | Starts or updates a business-idea dossier with sourced evidence. |
+| `/map [idea]` | Maps how ideas relate: which compete, complement or share evidence, which are weakest, and links worth adding. |
 | `/lint` | Weekly health check: broken links, orphans, stale or contradictory pages. |
 | `/review` | Short weekly summary of what changed. |
 
@@ -73,7 +75,16 @@ python3 wiki.py new concept "Unit economics"
 python3 wiki.py index             # rebuild wiki/index.md
 python3 wiki.py search pricing
 python3 wiki.py lint              # health check
+python3 wiki.py graph             # rebuild wiki/graph.md (map + idea analysis)
+python3 wiki.py related tutoring-marketplace   # one page's links and backlinks
 ```
+
+`wiki/graph.md` gives you the Obsidian-style views in the cloud: a coloured
+map of the pages (ideas yellow, concepts blue, entities green, questions
+purple, sources grey), an evidence table for each idea (sources, evidence
+links, hypotheses, whether a falsification test exists, latest verdict), how
+ideas relate to each other, hubs, clusters, suggested links and unlinked
+mentions. Above 80 pages the map focuses on ideas and their closest pages.
 
 ## Obsidian (optional, local only)
 
@@ -95,6 +106,6 @@ to `raw/assets`. The Web Clipper extension saves articles straight into
   secrets and outreach.
 
 What this repository adds: `wiki.py` does the bookkeeping in code (the index,
-the log, and checks for broken links, orphan pages, uningested sources, stale
-pages and text that looks like a secret), so the wiki stays healthy even when
-the assistant forgets a step.
+the log, the graph, and checks for broken links, orphan pages, uningested
+sources, stale pages and text that looks like a secret), so the wiki stays
+healthy even when the assistant forgets a step.
