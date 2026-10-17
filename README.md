@@ -23,9 +23,32 @@ Inside `wiki/`: `overview.md` (the big picture), `index.md` (catalog, generated)
 `log.md` (what happened, append-only), and folders `sources/`, `concepts/`,
 `entities/`, `ideas/`, `questions/`.
 
-## Everyday use
+## Everyday use in the cloud (no PC needed)
 
-Open Claude Code in this folder (`claude`) and use:
+Everything runs on GitHub and Claude Code on the web; nothing has to be
+installed or stored on your computer, and it works from a phone.
+
+1. **Upload sources.** On GitHub open the `raw` folder → **Add file** →
+   **Upload files**, drag in your files (or **Create new file** to paste
+   text, e.g. `raw/2026-10-17-pricing-article.md`), then
+   **Commit changes** straight to `main`. Quick thoughts can go in `inbox.md`
+   the same way (open it → pencil icon → edit → commit).
+2. **Ingest.** Open https://claude.ai/code, start a session on
+   `Traaa1234/wei-ideas-brain`, and type `/ingest` (or `/ingest all`). The
+   assistant reads the new files, writes the wiki pages, and commits and
+   pushes them to `main` before it finishes.
+3. **Read.** Browse `wiki/overview.md` and `wiki/index.md` on GitHub; links
+   between pages show as `[[page-name]]` (the page is `wiki/<folder>/page-name.md`,
+   or use the **Go to file** box, shortcut `t`).
+
+Cloud sessions start from a fresh copy of the repository each time and are
+discarded afterwards, so anything not pushed to GitHub is lost. That is why
+the assistant always pushes at the end of a cloud session.
+
+## Commands
+
+In a Claude Code session (on the web, or locally with `claude` in this folder)
+use:
 
 | Command | What it does |
 |---|---|
@@ -41,7 +64,8 @@ In Codex or any assistant without slash commands, say the same thing in words
 operation.
 
 The assistant uses a small helper, `wiki.py` (Python 3.8+, no installs, no
-network). On Windows type `py` instead of `python3`:
+network). You only need it yourself if you work locally; on Windows type `py`
+instead of `python3`:
 
 ```
 python3 wiki.py status            # what's new and waiting
@@ -51,9 +75,9 @@ python3 wiki.py search pricing
 python3 wiki.py lint              # health check
 ```
 
-## Obsidian (optional, recommended)
+## Obsidian (optional, local only)
 
-Open this folder as a vault (**Open folder as vault**). Graph view shows hubs
+If you also want a local copy, clone the repository and open the folder as a vault (**Open folder as vault**). Graph view shows hubs
 and orphan pages. Set **Settings → Files and links → Attachment folder path**
 to `raw/assets`. The Web Clipper extension saves articles straight into
 `raw/`. Your personal Obsidian settings in `.obsidian/` are ignored by Git.

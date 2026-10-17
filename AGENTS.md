@@ -34,7 +34,7 @@ keeping). `wiki/overview.md` is the one-page picture of everything;
 
 ## At the start of every session
 
-1. `python3 wiki.py status`: page counts, raw files not yet ingested, the
+1. `git pull origin main`, then `python3 wiki.py status`: page counts, raw files not yet ingested, the
    last log entries.
 2. Read `wiki/overview.md`, then `wiki/index.md`. Open other pages only as the
    task needs them.
@@ -121,9 +121,17 @@ with Jordi:
 
 ## Saving and sharing
 
-- This is a Git repository. Commit with a short message describing what was
-  ingested or changed, and only the files you wrote. Push only when Wei
-  asks; never force-push, rebase, reset or rewrite history.
+- This is a Git repository and GitHub is its home: Wei uploads sources to
+  `raw/` and edits `inbox.md` on github.com, and usually runs the assistant
+  in a cloud session (Claude Code on the web).
+- Start every session with `git pull origin main`, since Wei may have
+  uploaded files on GitHub since the last one.
+- Commit with a short message describing what was ingested or changed, and
+  only the files you wrote. In a cloud session, push to `main` at the end of
+  every operation (ingest, capture, query filed, lint, idea) without being
+  asked: the container is discarded and unpushed work is lost. In a local
+  session, push only when Wei asks. Never force-push, rebase, reset or
+  rewrite history; if a push is rejected, pull (merge) and push again.
 - **Visibility:** if this repository is public, everything committed is
   public. Keep it private (GitHub → Settings → Danger Zone → Change
   visibility) before adding anything personal.
