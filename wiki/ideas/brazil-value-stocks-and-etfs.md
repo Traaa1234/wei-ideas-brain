@@ -14,6 +14,7 @@ sources:
   - https://siblisresearch.com/data/ibovespa-pe-ratio/
   - https://etfdb.com/etf/EWZ/
   - https://www.etfcentral.com/compare-etfs/EWZ-vs-FLBR
+  - https://topforeignstocks.com/foreign-adrs-list/the-full-list-of-brazilian-adrs/
 ---
 
 # Idea: Brazil value stocks and ETFs
@@ -45,8 +46,10 @@ sources:
 
 ## Wei's constraints
 
-- Trades US-listed ETFs only; measures returns in USD (Wei, 2026-10-26).
-- So B3-listed funds (BOVA11, SMAL11) are out; the usable set is EWZ, FLBR, EWZS ([[brazil-equity-etfs]]).
+- Trades US-listed securities; measures returns in USD (Wei, 2026-10-26).
+- Wants both ETFs and individual Brazilian stocks; for stocks that means US-listed ADRs ([[brazilian-adrs]]) (Wei, 2026-10-26).
+- Benchmark: EEM, a broad emerging-markets ETF (Wei, 2026-10-26).
+- So B3-listed funds (BOVA11, SMAL11) are out; the usable ETFs are EWZ, FLBR, EWZS ([[brazil-equity-etfs]]).
 - USD returns already include the BRL/USD move: a cheap Brazil market can still lose money in USD if the real falls. [hypothesis that BRL is a major driver of USD returns; check by comparing EWZ with the Ibovespa in BRL]
 
 ## Customer and buyer
@@ -73,11 +76,12 @@ sources:
 4. **Small caps.** Genial reports small caps below their own average
    multiple; EWZS gives that exposure in USD ([[brazil-equity-etfs]]).
    [hypothesis that small caps rerate more when rates fall]
-5. **Quality-filtered value screen** (outside Wei's ETF-only rule; would need US-listed ADRs). Low P/E, P/B or EV/EBITDA *plus* a
+5. **Quality-filtered value screen on ADRs.** Rank the NYSE-listed
+   [[brazilian-adrs]] by low P/E, P/B or EV/EBITDA *plus* a
    quality filter (ROE, low debt, positive cash flow) to avoid
    [[value-traps]]. [hypothesis]
 6. **Dividend value.** High, covered dividend yields; check payout ratio and
-   whether the company is state-controlled ([[brazil-country-risk]]). [hypothesis]
+   whether the company is state-controlled ([[brazil-country-risk]]); same ADR universe. [hypothesis]
 7. **Rate-cut play.** If the Selic falls, domestic-facing sectors (banks,
    retail, utilities) may rerate more than exporters (Itaú BBA thesis, above).
    [hypothesis]
@@ -106,19 +110,24 @@ sources:
 
 ## Cheapest falsification test
 
-Paper portfolio in USD, no money: on a set date, record the price of EWZ,
-FLBR and EWZS, plus a broad emerging-markets ETF as the benchmark (which one
-is Wei's choice). Note the Ibovespa forward P/E and its discount to the
-historical average on that date (from a broker strategy note).
+Paper portfolio in USD, no money. On a set date record:
+
+- (a) ETFs: EWZ, FLBR and EWZS;
+- (b) stocks: the 5 to 10 cheapest NYSE-listed [[brazilian-adrs]] that pass
+  the quality filter in [[value-screening]], equal-weighted;
+- benchmark: EEM;
+- the Ibovespa forward P/E and its discount to the historical average (from a
+  broker strategy note).
+
 Check total return in USD at 6 and 12 months.
-Fail if the cheapest Brazil option does not beat the benchmark by at least
-3 percentage points over 12 months [threshold is a guess; Wei to confirm
-before starting]. Cost: about an hour to set up, plus a few minutes a month.
+Fail if neither (a) nor (b) beats EEM by at least 3 percentage points over 12
+months, and drop the stock screen if (b) does not beat the best of (a)
+[thresholds are guesses; Wei to confirm before starting]. Cost: about two
+hours to set up, plus a few minutes a month.
 
 ## Open questions
 
-- Which emerging-markets ETF should be the benchmark?
-- Is there a currency-hedged Brazil ETF, and would it suit a USD investor? (to research)
+- Which free screener gives P/E, P/B, ROE and debt for the ADRs? (to research)
 - Is the April 2026 discount still there now (after the October 2026 election)?
 
 ## Verdict history

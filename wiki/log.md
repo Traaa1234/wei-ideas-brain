@@ -14,3 +14,7 @@ Append-only. Written by `wiki.py log`. Last entries:
 ## [2026-10-26] idea | Brazil value: US-listed ETFs, USD returns
 
 - pages: [[brazil-value-stocks-and-etfs]], [[brazil-equity-etfs]]
+
+## [2026-10-26] idea | Brazil value: add ADR stocks, EEM benchmark
+
+- pages: [[brazil-value-stocks-and-etfs]], [[brazilian-adrs]], [[value-screening]], [[overview]]

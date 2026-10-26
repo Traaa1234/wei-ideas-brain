@@ -28,7 +28,7 @@ narrows the list; it does not decide.
 
 ## How it connects
 
-- [[brazil-value-stocks-and-etfs]]: approach 5 uses this screen.
+- [[brazil-value-stocks-and-etfs]]: approach 5 uses this screen on [[brazilian-adrs]].
 - [[value-traps]]: the quality filter exists to avoid them.
 
 ## Open questions and contradictions

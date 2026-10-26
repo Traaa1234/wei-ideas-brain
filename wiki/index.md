@@ -18,6 +18,7 @@ Read this first, then open the pages a question needs.
 - [[value-screening]]: Filtering stocks by valuation multiples plus quality checks to find cheap but sound companies (seed, 2026-10-26)
 - [[value-traps]]: Stocks that look cheap but stay cheap or fall further because the business is declining (seed, 2026-10-26)
 
-## Entities (1)
+## Entities (2)
 
 - [[brazil-equity-etfs]]: Main ETFs giving exposure to Brazilian stocks, US-listed and B3-listed (seed, 2026-10-26)
+- [[brazilian-adrs]]: Brazilian companies whose shares trade in USD on US exchanges (ADRs), the single-stock universe for Wei (seed, 2026-10-26)

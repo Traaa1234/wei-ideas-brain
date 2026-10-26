@@ -14,7 +14,7 @@ No raw sources ingested yet. First idea entered from web search notes.
 
 ## Themes
 
-- Value investing in Brazil: [[value-screening]], [[value-traps]], [[brazil-country-risk]], [[brazil-equity-etfs]]
+- Value investing in Brazil: [[value-screening]], [[value-traps]], [[brazil-country-risk]], [[brazil-equity-etfs]], [[brazilian-adrs]]
 
 ## Active ideas
 
