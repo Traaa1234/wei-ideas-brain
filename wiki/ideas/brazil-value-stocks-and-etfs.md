@@ -20,7 +20,7 @@ sources:
 # Idea: Brazil value stocks and ETFs
 
 - stage: research
-- next action: set up the USD paper portfolio in "Cheapest falsification test" and confirm the threshold
+- next action: Wei fills "Starting numbers" from one screener on one date, confirms the thresholds, then the 12-month clock starts
 - shared with Jordi's Idea Lab: no
 
 > Research notes only, not investment advice. Any buy or sell decision is Wei's.
@@ -125,10 +125,30 @@ months, and drop the stock screen if (b) does not beat the best of (a)
 [thresholds are guesses; Wei to confirm before starting]. Cost: about two
 hours to set up, plus a few minutes a month.
 
+## Starting numbers (draft, 2026-10-26)
+
+Collected from web search snippets, not from one screener; this assistant's
+data feed had no credits and Finviz was unreachable from the cloud session.
+Wei to confirm or replace on the start date from one source.
+
+| Item | Value | Date | Source |
+|---|---|---|---|
+| EWZ price | $42.59 | 2026-10-23 close | [heygotrade](https://www.heygotrade.com/en/us-stock/ewz/) (a Finviz snippet showed $34.14, likely wrong) |
+| EWZS price | $16.74 | 2026-10-23 | [iShares](https://www.ishares.com/us/products/239613/ishares-msci-brazil-smallcap-etf) (another site showed $11.54, likely stale) |
+| FLBR price | not found | | |
+| EEM price | not found | | |
+| PBR P/E, dividend yield | 6.29, 5.36% | 2026-10-23 | [Google Finance](https://www.google.com/finance/quote/PBR:NYSE) (Finviz snippet: P/E 4.86) |
+| Other ADRs P/E, P/B, ROE, debt | not found | | fill from one screener ([[value-screening]]) |
+| Ibovespa forward P/E | below 10x | about 2026-10-10 | [Blocktrends](https://blocktrends.com.br/ibovespa-235-mil-pontos-projecao-2027-valuation/) |
+| Ibovespa historical average | 10.5x to 11x, by source | | XP 10.9x over 25 years ([Suno](https://www.suno.com.br/noticias/ibovespa-multiplo-atrativo-xp-gpj/)); BTG 10.5x |
+
+- Brazil rallied after the first round of the October 2026 election (an
+  EWZ +13% headline after 5 October, per search results); the discount may
+  have narrowed since April. [source, from search summary; verify]
+
 ## Open questions
 
-- Which free screener gives P/E, P/B, ROE and debt for the ADRs? (to research)
-- Is the April 2026 discount still there now (after the October 2026 election)?
+- Is the April 2026 discount still there after the October 2026 election rally? Partial answer: forward P/E still below 10x around 10 October (Blocktrends, above).
 
 ## Verdict history
 
