@@ -19,7 +19,7 @@ sources:
 # Idea: Brazil value stocks and ETFs
 
 - stage: research
-- next action: pick one approach below and run its falsification test on a paper portfolio (no money)
+- next action: set up the USD paper portfolio in "Cheapest falsification test" and confirm the threshold
 - shared with Jordi's Idea Lab: no
 
 > Research notes only, not investment advice. Any buy or sell decision is Wei's.
@@ -43,6 +43,12 @@ sources:
   - Siblis: Brazilian earnings growth has been weak in recent years, one
     reason the discount persists ([Siblis](https://siblisresearch.com/data/ibovespa-pe-ratio/)) [source, from search summary; verify]
 
+## Wei's constraints
+
+- Trades US-listed ETFs only; measures returns in USD (Wei, 2026-10-26).
+- So B3-listed funds (BOVA11, SMAL11) are out; the usable set is EWZ, FLBR, EWZS ([[brazil-equity-etfs]]).
+- USD returns already include the BRL/USD move: a cheap Brazil market can still lose money in USD if the real falls. [hypothesis that BRL is a major driver of USD returns; check by comparing EWZ with the Ibovespa in BRL]
+
 ## Customer and buyer
 
 - user: Wei, as a personal investor (or a future tool/newsletter for others [hypothesis])
@@ -65,9 +71,9 @@ sources:
    and Vale, since they pull the headline multiple down (Genial, above).
    [hypothesis that this is the fairer measure]
 4. **Small caps.** Genial reports small caps below their own average
-   multiple; EWZS / SMAL11 give that exposure ([[brazil-equity-etfs]]).
+   multiple; EWZS gives that exposure in USD ([[brazil-equity-etfs]]).
    [hypothesis that small caps rerate more when rates fall]
-5. **Quality-filtered value screen.** Low P/E, P/B or EV/EBITDA *plus* a
+5. **Quality-filtered value screen** (outside Wei's ETF-only rule; would need US-listed ADRs). Low P/E, P/B or EV/EBITDA *plus* a
    quality filter (ROE, low debt, positive cash flow) to avoid
    [[value-traps]]. [hypothesis]
 6. **Dividend value.** High, covered dividend yields; check payout ratio and
@@ -84,33 +90,35 @@ sources:
 ## Assumptions (hypotheses)
 
 - [hypothesis] The discount to history mean-reverts within 1 to 3 years; check by: backtest past discount periods.
-- [hypothesis] Currency (BRL) moves do not wipe out the equity gain for a foreign investor; check by: compare EWZ (USD) with BOVA11 (BRL) returns.
+- [hypothesis] BRL moves do not wipe out the equity gain in USD; check by: compare EWZ's USD return with the Ibovespa's BRL return over the same periods.
 - [hypothesis] A quality filter improves results over pure cheapness; check by: paper portfolio test below.
 
 ## Risks
 
 - Value trap: cheap because earnings are falling; early warning sign: earnings estimates cut while price is flat ([[value-traps]]).
 - Fiscal and political risk, election-year volatility, high rates ([[brazil-country-risk]]).
-- Currency risk for anyone not earning in BRL.
+- Currency risk: Wei measures in USD, so a weaker real directly cuts returns.
 - Concentration: Petrobras, Vale and the big banks dominate the broad ETFs [hypothesis; check holdings].
 
 ## Simple economics
 
-- ETF fees: 0.19% to 0.59% a year [source, verify] | brokerage and FX costs: [guess, check broker] | tax: depends on Wei's country [unknown]
+- ETF fees: 0.19% to 0.59% a year [source, verify] | brokerage: [guess, check broker]; no FX step needed since the ETFs trade in USD | tax: depends on Wei's country [unknown]
 
 ## Cheapest falsification test
 
-Paper portfolio, no money: on a set date, record (a) EWZ or FLBR and (b) the
-10 cheapest Ibovespa stocks that pass the quality filter in [[value-screening]].
-Compare with each other and with a world ETF after 6 and 12 months.
-Fail if (b) does not beat (a) by at least 3 percentage points over 12 months
-[threshold is a guess; Wei to confirm before starting]. Cost: about an hour
-to set up, plus a few minutes a month.
+Paper portfolio in USD, no money: on a set date, record the price of EWZ,
+FLBR and EWZS, plus a broad emerging-markets ETF as the benchmark (which one
+is Wei's choice). Note the Ibovespa forward P/E and its discount to the
+historical average on that date (from a broker strategy note).
+Check total return in USD at 6 and 12 months.
+Fail if the cheapest Brazil option does not beat the benchmark by at least
+3 percentage points over 12 months [threshold is a guess; Wei to confirm
+before starting]. Cost: about an hour to set up, plus a few minutes a month.
 
 ## Open questions
 
-- Which exchange can Wei actually trade (US-listed ETFs vs B3-listed)?
-- Which currency does Wei measure returns in?
+- Which emerging-markets ETF should be the benchmark?
+- Is there a currency-hedged Brazil ETF, and would it suit a USD investor? (to research)
 - Is the April 2026 discount still there now (after the October 2026 election)?
 
 ## Verdict history

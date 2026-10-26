@@ -26,7 +26,7 @@ sources:
 | BOVA11 | Brazil (B3) | Ibovespa | to check | [hypothesis] |
 | SMAL11 | Brazil (B3) | Brazilian small caps | to check | [hypothesis] |
 
-Fees come from third-party sites; verify on the issuer pages before relying on them.
+Wei trades US-listed ETFs only, so BOVA11 and SMAL11 are listed for reference. Fees come from third-party sites; verify on the issuer pages before relying on them.
 
 ## How it connects
 

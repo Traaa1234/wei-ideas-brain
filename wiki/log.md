@@ -10,3 +10,7 @@ Append-only. Written by `wiki.py log`. Last entries:
 ## [2026-10-26] idea | Brazil value stocks and ETFs
 
 - pages: [[brazil-value-stocks-and-etfs]], [[value-screening]], [[value-traps]], [[brazil-country-risk]], [[brazil-equity-etfs]], [[overview]]
+
+## [2026-10-26] idea | Brazil value: US-listed ETFs, USD returns
+
+- pages: [[brazil-value-stocks-and-etfs]], [[brazil-equity-etfs]]
