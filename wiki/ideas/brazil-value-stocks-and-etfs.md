@@ -185,6 +185,10 @@ equal-weighted. [rules are Claude's draft; Wei to confirm]
   [hypothesis: the arm is a concentrated bet on Brazilian finance]
 - All P/Es use earnings from before the election; see [[value-traps]].
 
+## Related ideas
+
+- [[china-value-stocks-and-etfs]]: same method and benchmark applied to China; competes for the same money and could share the paper test.
+
 ## Open questions
 
 - Start the 12-month clock at the 2026-10-26 close (buying the panic on paper) or wait for prices to settle? Wei's call.

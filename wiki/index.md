@@ -8,21 +8,26 @@ Read this first, then open the pages a question needs.
 
 - [[overview]]: The one-page picture of this brain: themes, active ideas, open questions (seed, 2026-10-27)
 
-## Ideas (1)
+## Ideas (2)
 
 - [[brazil-value-stocks-and-etfs]]: Ways to find cheap, value-priced Brazilian stocks or ETFs without falling into value traps (seed, 2026-10-27)
+- [[china-value-stocks-and-etfs]]: Finding US-listed Chinese stocks and China ETFs with low P/E, screened for quality, measured in USD against EEM (seed, 2026-10-27)
 
-## Concepts (3)
+## Concepts (4)
 
 - [[brazil-country-risk]]: Fiscal, political, interest-rate and currency risks that keep Brazilian stocks at a discount (seed, 2026-10-27)
+- [[china-country-risk]]: Regulatory, legal-structure, delisting and geopolitical risks that keep Chinese stocks at a discount (seed, 2026-10-27)
 - [[value-screening]]: Filtering stocks by valuation multiples plus quality checks to find cheap but sound companies (seed, 2026-10-26)
 - [[value-traps]]: Stocks that look cheap but stay cheap or fall further because the business is declining (seed, 2026-10-26)
 
-## Entities (2)
+## Entities (4)
 
 - [[brazil-equity-etfs]]: Main ETFs giving exposure to Brazilian stocks, US-listed and B3-listed (seed, 2026-10-27)
 - [[brazilian-adrs]]: Brazilian companies whose shares trade in USD on US exchanges (ADRs), the single-stock universe for Wei (seed, 2026-10-27)
+- [[china-equity-etfs]]: US-listed ETFs that hold Chinese stocks, with fees, returns and P/E (seed, 2026-10-27)
+- [[chinese-adrs]]: Chinese and Hong Kong companies whose shares trade in USD on US exchanges (seed, 2026-10-27)
 
-## Sources (1)
+## Sources (2)
 
 - [[finviz-brazil-snapshot-2026-10-26]]: One-source, one-date valuation and quality data for 34 US-listed Brazilian stocks and 4 ETFs, at the close of the post-election crash day (2026-10-27)
+- [[finviz-china-snapshot-2026-10-26]]: One-source, one-date valuation and quality data for 33 US-listed Chinese and Hong Kong stocks ($2bn and up) and 8 China ETFs (2026-10-27)

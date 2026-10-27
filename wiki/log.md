@@ -26,3 +26,11 @@ Append-only. Written by `wiki.py log`. Last entries:
 ## [2026-10-27] ingest | Finviz Brazil snapshot 2026-10-26
 
 - pages: [[finviz-brazil-snapshot-2026-10-26]], [[brazil-value-stocks-and-etfs]], [[brazil-country-risk]], [[brazil-equity-etfs]], [[brazilian-adrs]], [[overview]]
+
+## [2026-10-27] ingest | Finviz China snapshot 2026-10-26
+
+- pages: [[finviz-china-snapshot-2026-10-26]], [[china-value-stocks-and-etfs]], [[chinese-adrs]], [[china-equity-etfs]], [[china-country-risk]]
+
+## [2026-10-27] idea | China value stocks and ETFs
+
+- pages: [[china-value-stocks-and-etfs]], [[brazil-value-stocks-and-etfs]], [[overview]]

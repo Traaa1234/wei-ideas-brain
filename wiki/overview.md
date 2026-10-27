@@ -10,15 +10,17 @@ sources: []
 
 # Overview
 
-One source so far: a Finviz snapshot of US-listed Brazilian stocks and ETFs at the 2026-10-26 close, the day of the post-election crash ([[finviz-brazil-snapshot-2026-10-26]]).
+Two sources so far, both Finviz snapshots of US-listed stocks and ETFs at the 2026-10-26 close: Brazil, on the day of its post-election crash ([[finviz-brazil-snapshot-2026-10-26]]), and China ([[finviz-china-snapshot-2026-10-26]]).
 
 ## Themes
 
 - Value investing in Brazil: [[value-screening]], [[value-traps]], [[brazil-country-risk]], [[brazil-equity-etfs]], [[brazilian-adrs]]
+- Value investing in China: [[chinese-adrs]], [[china-equity-etfs]], [[china-country-risk]]
 
 ## Active ideas
 
 - [[brazil-value-stocks-and-etfs]]: research stage, no verdict
+- [[china-value-stocks-and-etfs]]: research stage, no verdict; few cheap Chinese stocks pass the quality screen
 
 ## Open questions
 
