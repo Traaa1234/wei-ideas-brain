@@ -83,7 +83,8 @@ Debt/Equity at most 2 except banks, brokers and insurers. Data:
 1. **Cheapest broad ETF.** FLCH (0.19%) instead of MCHI (0.59%) or FXI (0.74%) for the same broad exposure. [hypothesis that the indexes perform alike; check holdings]
 2. **Ex state-owned.** CXSE (0.32%) excludes state-owned firms. [hypothesis that state-owned firms drag returns]
 3. **Forward-P/E screen of large caps** (JD, PDD, BABA, ZTO, TME) instead of trailing P/E. [hypothesis]
-4. **Mainland A-shares (ASHR)** fell far less this year (-6%) than US-listed China (-18% to -32%). [hypothesis: a different market with different drivers]
+4. **State banks via OTC ADRs** (ICBC, CCB, Bank of China): about 6-8x earnings, 0.5-0.8x book, 4-5% yields, but not exchange-listed; see [[china-bank-stocks]].
+5. **Mainland A-shares (ASHR)** fell far less this year (-6%) than US-listed China (-18% to -32%). [hypothesis: a different market with different drivers]
 
 ## Evidence (sourced)
 
@@ -118,6 +119,7 @@ percentage points over 12 months [threshold is a guess; Wei to confirm].
 - Why did Chinese internet and fintech stocks fall so much in 2026?
 - Does EEM already hold a lot of China, which would make it a weak benchmark for a China arm? [hypothesis; check EEM's country weights]
 - Keep PUK, or exclude non-Chinese companies tagged Hong Kong?
+- Widen "US-listed" to include OTC ADRs, so the big Chinese banks qualify ([[china-bank-stocks]])?
 
 ## Verdict history
 

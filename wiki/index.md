@@ -27,6 +27,10 @@ Read this first, then open the pages a question needs.
 - [[china-equity-etfs]]: US-listed ETFs that hold Chinese stocks, with fees, returns and P/E (seed, 2026-10-27)
 - [[chinese-adrs]]: Chinese and Hong Kong companies whose shares trade in USD on US exchanges (seed, 2026-10-27)
 
+## Questions (1)
+
+- [[china-bank-stocks]]: No Chinese bank lists on NYSE or Nasdaq; the big state banks trade in the US only over the counter, at about 6-8x earnings, 0.5-0.8x book and 4-5% yields (growing, 2026-10-27)
+
 ## Sources (2)
 
 - [[finviz-brazil-snapshot-2026-10-26]]: One-source, one-date valuation and quality data for 34 US-listed Brazilian stocks and 4 ETFs, at the close of the post-election crash day (2026-10-27)

@@ -34,3 +34,7 @@ Append-only. Written by `wiki.py log`. Last entries:
 ## [2026-10-27] idea | China value stocks and ETFs
 
 - pages: [[china-value-stocks-and-etfs]], [[brazil-value-stocks-and-etfs]], [[overview]]
+
+## [2026-10-27] query | Which Chinese bank stocks can Wei buy
+
+- pages: [[china-bank-stocks]], [[china-value-stocks-and-etfs]], [[chinese-adrs]]
