@@ -3,9 +3,11 @@ title: Brazil country risk
 type: concept
 summary: Fiscal, political, interest-rate and currency risks that keep Brazilian stocks at a discount
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 status: seed
 sources:
+  - https://www.riotimesonline.com/brazil-stocks-close-down-13-9-percent-lula-win-2026/
+  - https://en.mercopress.com/2026/10/26/brazil-s-real-plunges-more-than-8-and-s-o-paulo-stocks-slump-after-lula-s-victory
   - https://investidor10.com.br/noticias/itau-bba-projeta-ibovespa-em-185-mil-pontos-em-2026-117963/
 ---
 
@@ -23,6 +25,13 @@ deficits, politics, high interest rates and a volatile real (BRL).
 - Fiscal risk, high rates and election-year volatility are the main bear
   arguments (same broker coverage) [source, from search summary; verify].
 
+- 2026 election shock: Lula won the 2026-10-25 runoff; on 2026-10-26 the
+  Ibovespa fell 13.88%, the real about 8%, and B3 triggered a circuit breaker
+  ([Rio Times](https://www.riotimesonline.com/brazil-stocks-close-down-13-9-percent-lula-win-2026/),
+  [MercoPress](https://en.mercopress.com/2026/10/26/brazil-s-real-plunges-more-than-8-and-s-o-paulo-stocks-slump-after-lula-s-victory)).
+  For a USD investor the two falls compound: EWZ lost 19.8% that day
+  ([[finviz-brazil-snapshot-2026-10-26]]).
+
 ## How it connects
 
 - [[brazil-value-stocks-and-etfs]]: the reason the discount may or may not close.
@@ -30,4 +39,4 @@ deficits, politics, high interest rates and a volatile real (BRL).
 
 ## Open questions and contradictions
 
-- Did the October 2026 election change the fiscal outlook? (to research)
+- The market's answer on 2026-10-26 was yes; whether policy confirms it is open. (to research)

@@ -3,9 +3,10 @@ title: Brazilian ADRs
 type: entity
 summary: Brazilian companies whose shares trade in USD on US exchanges (ADRs), the single-stock universe for Wei
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 status: seed
 sources:
+  - raw/2026-10-27-finviz-brazil-snapshot.md
   - https://topforeignstocks.com/foreign-adrs-list/the-full-list-of-brazilian-adrs/
   - https://WWW.NYSE.COM/publicdocs/nyse/data/CurListofallStocks.pdf
 ---
@@ -39,6 +40,14 @@ sources:
 
 - Some Brazilian names trade only over the counter (e.g. BDORY Banco do Brasil, BOLSY B3) per the same list. [hypothesis: OTC names have wider spreads and less reporting; prefer NYSE names]
 - An older NYSE listings file also shows EBR, ABEV, SBS, CIG, SUZ, VIV, TIMB, UGP and VALE ([NYSE](https://WWW.NYSE.COM/publicdocs/nyse/data/CurListofallStocks.pdf)).
+
+## Finviz's wider list
+
+- Finviz's Country = Brazil filter returns 34 US-listed names (2026-10-26),
+  adding Brazil-based companies listed directly in the US: NU (Nu Holdings),
+  STNE (StoneCo), PAGS (PagSeguro), XP, INTR (Inter & Co), AFYA, CINT, VINP,
+  among others. Embraer trades as EMBJ, not ERJ, and Copel as ELPC
+  ([[finviz-brazil-snapshot-2026-10-26]]).
 
 ## How it connects
 

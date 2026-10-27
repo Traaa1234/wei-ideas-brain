@@ -3,12 +3,15 @@ title: Brazil value stocks and ETFs
 type: idea
 summary: Ways to find cheap, value-priced Brazilian stocks or ETFs without falling into value traps
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 status: seed
 stage: research
 verdict: none yet
 confidence: low
 sources:
+  - raw/2026-10-27-finviz-brazil-snapshot.md
+  - https://www.riotimesonline.com/brazil-stocks-close-down-13-9-percent-lula-win-2026/
+  - https://en.mercopress.com/2026/10/26/brazil-s-real-plunges-more-than-8-and-s-o-paulo-stocks-slump-after-lula-s-victory
   - https://analisa.genialinvestimentos.com.br/analises-e-resultados/estrategia-em-acao-abril-de-2026/
   - https://investidor10.com.br/noticias/itau-bba-projeta-ibovespa-em-185-mil-pontos-em-2026-117963/
   - https://siblisresearch.com/data/ibovespa-pe-ratio/
@@ -20,7 +23,7 @@ sources:
 # Idea: Brazil value stocks and ETFs
 
 - stage: research
-- next action: Wei fills "Starting numbers" from one screener on one date, confirms the thresholds, then the 12-month clock starts
+- next action: Wei decides whether the paper test starts from the 2026-10-26 close (post-crash) or a later date, and confirms the thresholds
 - shared with Jordi's Idea Lab: no
 
 > Research notes only, not investment advice. Any buy or sell decision is Wei's.
@@ -51,6 +54,20 @@ sources:
 - Benchmark: EEM, a broad emerging-markets ETF (Wei, 2026-10-26).
 - So B3-listed funds (BOVA11, SMAL11) are out; the usable ETFs are EWZ, FLBR, EWZS ([[brazil-equity-etfs]]).
 - USD returns already include the BRL/USD move: a cheap Brazil market can still lose money in USD if the real falls. [hypothesis that BRL is a major driver of USD returns; check by comparing EWZ with the Ibovespa in BRL]
+
+## What changed on 2026-10-26
+
+- Lula won the presidential runoff on 2026-10-25; on 2026-10-26 the Ibovespa
+  closed down 13.88% at 176,608, its worst day since March 2020, after a
+  circuit-breaker halt ([Rio Times](https://www.riotimesonline.com/brazil-stocks-close-down-13-9-percent-lula-win-2026/)) [source].
+- The real fell about 8%, the dollar near R$5.42; the Treasury cancelled debt
+  auctions for 27 to 29 October ([MercoPress](https://en.mercopress.com/2026/10/26/brazil-s-real-plunges-more-than-8-and-s-o-paulo-stocks-slump-after-lula-s-victory)) [source].
+- Markets had priced a Flávio Bolsonaro win after the first round
+  ([Quartz](https://qz.com/brazil-stocks-real-historic-losses-lula-win-102626)) [source].
+- In USD, EWZ fell 19.8% in one day ($42.59 to $34.15) ([[finviz-brazil-snapshot-2026-10-26]]).
+- So Brazil is much cheaper than in April, and much riskier: the crash is the
+  market repricing [[brazil-country-risk]]. Whether this is an overreaction
+  or a new, lower normal is the core question of this idea now. [hypothesis]
 
 ## Customer and buyer
 
@@ -125,29 +142,53 @@ months, and drop the stock screen if (b) does not beat the best of (a)
 [thresholds are guesses; Wei to confirm before starting]. Cost: about two
 hours to set up, plus a few minutes a month.
 
-## Starting numbers (draft, 2026-10-26)
+## Starting numbers (2026-10-26 close, one source)
 
-Collected from web search snippets, not from one screener; this assistant's
-data feed had no credits and Finviz was unreachable from the cloud session.
-Wei to confirm or replace on the start date from one source.
+All from [[finviz-brazil-snapshot-2026-10-26]] (Finviz, fetched 2026-10-27).
 
-| Item | Value | Date | Source |
-|---|---|---|---|
-| EWZ price | $42.59 | 2026-10-23 close | [heygotrade](https://www.heygotrade.com/en/us-stock/ewz/) (a Finviz snippet showed $34.14, likely wrong) |
-| EWZS price | $16.74 | 2026-10-23 | [iShares](https://www.ishares.com/us/products/239613/ishares-msci-brazil-smallcap-etf) (another site showed $11.54, likely stale) |
-| FLBR price | not found | | |
-| EEM price | not found | | |
-| PBR P/E, dividend yield | 6.29, 5.36% | 2026-10-23 | [Google Finance](https://www.google.com/finance/quote/PBR:NYSE) (Finviz snippet: P/E 4.86) |
-| Other ADRs P/E, P/B, ROE, debt | not found | | fill from one screener ([[value-screening]]) |
-| Ibovespa forward P/E | below 10x | about 2026-10-10 | [Blocktrends](https://blocktrends.com.br/ibovespa-235-mil-pontos-projecao-2027-valuation/) |
-| Ibovespa historical average | 10.5x to 11x, by source | | XP 10.9x over 25 years ([Suno](https://www.suno.com.br/noticias/ibovespa-multiplo-atrativo-xp-gpj/)); BTG 10.5x |
+| Item | 2026-10-26 close |
+|---|---|
+| EWZ | $34.15 |
+| FLBR | $21.44 |
+| EWZS | $11.45 |
+| EEM (benchmark) | $61.82 |
+| Ibovespa forward P/E | no source after the crash; about 8.5x if earnings estimates held [guess: the sub-10x mid-October level less the 13.9% fall] |
 
-- Brazil rallied after the first round of the October 2026 election (an
-  EWZ +13% headline after 5 October, per search results); the discount may
-  have narrowed since April. [source, from search summary; verify]
+Correction: the 2026-10-26 draft called a Finviz EWZ price of $34.14 "likely
+wrong" and an EWZS price of $11.54 "likely stale". Both were the real
+post-election prices; the $42.59 and $16.74 figures were the 23 October close.
+
+### Stock screen (rules fixed before looking at returns)
+
+Rules: Finviz Country = Brazil; market cap at least $1bn; trailing P/E
+above 0 and at most 11; ROE at least 12%; EPS growth year on year above 0;
+Debt/Equity at most 2 except for banks, capital markets and asset managers;
+one share class per company. Take up to 10 with the lowest P/E,
+equal-weighted. [rules are Claude's draft; Wei to confirm]
+
+| Ticker | Company | P/E | ROE % | EPS YoY % | Price 10-26 |
+|---|---|---|---|---|---|
+| STNE | StoneCo | 3.4 | 34.2 | 15.7 | 8.33 |
+| PBR | Petrobras | 5.7 | 30.7 | 57.5 | 22.50 |
+| BBD | Bradesco | 6.2 | 14.2 | 11.8 | 2.93 |
+| INTR | Inter & Co | 7.2 | 15.5 | 26.6 | 4.68 |
+| XP | XP Inc | 8.2 | 22.7 | 17.8 | 15.70 |
+| TIMB | TIM Brasil | 9.9 | 17.3 | 1.4 | 16.79 |
+| ITUB | Itaú Unibanco | 10.0 | 22.1 | 18.0 | 7.70 |
+| UGP | Ultrapar | 10.8 | 21.8 | 99.3 | 6.56 |
+
+- Failed the rules: PAGS (Debt/Eq 3.1), CIG, AFYA, SUZ, SBS (earnings
+  falling), CINT, VINP, AGBK (under $1bn), BSBR, ABEV and others (P/E above 11).
+- Eight pass, so the stock arm holds 8, not 10.
+- Five of the eight are banks, brokers or payments firms, the sector hit
+  hardest on 2026-10-26 and the one most exposed to rates and politics.
+  [hypothesis: the arm is a concentrated bet on Brazilian finance]
+- All P/Es use earnings from before the election; see [[value-traps]].
 
 ## Open questions
 
+- Start the 12-month clock at the 2026-10-26 close (buying the panic on paper) or wait for prices to settle? Wei's call.
+- Will analysts cut 2027 earnings estimates after the election? If so, the screen above overstates cheapness.
 - Is the April 2026 discount still there after the October 2026 election rally? Partial answer: forward P/E still below 10x around 10 October (Blocktrends, above).
 
 ## Verdict history

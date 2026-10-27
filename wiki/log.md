@@ -22,3 +22,7 @@ Append-only. Written by `wiki.py log`. Last entries:
 ## [2026-10-26] idea | Brazil value: screeners and draft starting numbers
 
 - pages: [[brazil-value-stocks-and-etfs]], [[value-screening]]
+
+## [2026-10-27] ingest | Finviz Brazil snapshot 2026-10-26
+
+- pages: [[finviz-brazil-snapshot-2026-10-26]], [[brazil-value-stocks-and-etfs]], [[brazil-country-risk]], [[brazil-equity-etfs]], [[brazilian-adrs]], [[overview]]
