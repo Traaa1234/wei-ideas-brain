@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --read-font: 'Atkinson Hyperlegible', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --bg: #f0fdf4;
+  --panel: #ffffff;
+  --ink: #14532d;
+  --muted: #4b5563;
+  --accent: #16a34a;
+  --accent-ink: #ffffff;
+  --soft: #dcfce7;
+  --line: #bbf7d0;
+  /* sound-type colours (colour-blind-safe set; shapes back them up) */
+  --t-consonant: #1d4ed8;
+  --t-digraph: #4338ca;
+  --t-short: #b91c1c;
+  --t-long: #0f766e;
+  --t-diphthong: #be185d;
+  --t-r: #15803d;
+  --t-ending: #c2410c;
+  --t-new: #7e22ce;
+  --t-heart: #e11d48;
+  --t-silent: #9ca3af;
+}
+[data-band='explorer'] {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --ink: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #22d3ee;
+  --accent-ink: #082f49;
+  --soft: #164e63;
+  --line: #334155;
+  --t-consonant: #93c5fd;
+  --t-digraph: #a5b4fc;
+  --t-short: #fca5a5;
+  --t-long: #5eead4;
+  --t-diphthong: #f9a8d4;
+  --t-r: #86efac;
+  --t-ending: #fdba74;
+  --t-new: #d8b4fe;
+  --t-heart: #fda4af;
+  --t-silent: #64748b;
+}
+[data-font='dyslexia'] {
+  --read-font: 'Andika', 'Lexend', 'Comic Sans MS', 'Chalkboard SE', system-ui, sans-serif;
+}
+html, body { background: var(--bg); color: var(--ink); }
+body { font-family: ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+button { touch-action: manipulation; }
+.panel { background: var(--panel); border: 1px solid var(--line); }
+.btn { min-height: 48px; min-width: 48px; border-radius: 9999px; padding: 0.6rem 1.2rem; font-weight: 700; background: var(--accent); color: var(--accent-ink); }
+.btn:disabled { opacity: 0.4; }
+.btn-ghost { min-height: 48px; border-radius: 9999px; padding: 0.6rem 1.1rem; font-weight: 700; border: 2px solid var(--line); background: var(--panel); color: var(--ink); }
+.chip { border-radius: 9999px; padding: 0.15rem 0.6rem; font-size: 0.8rem; font-weight: 700; background: var(--soft); color: var(--ink); }
+.muted { color: var(--muted); }
+.read { font-family: var(--read-font); }
+.spaced { letter-spacing: 0.06em; word-spacing: 0.25em; line-height: 2.1 !important; }
+
+/* word in running text */
+.word { border-radius: 0.4rem; cursor: pointer; padding: 0 0.05em; }
+.word:hover, .word:focus-visible { background: var(--soft); outline: none; }
+.word.new { text-decoration: underline dotted var(--t-new) 3px; text-underline-offset: 6px; }
+.word.speaking { background: #fde68a; color: #111; }
+/* part-of-speech underlines (shape, not colour) */
+.pos-noun { box-shadow: inset 0 -0 0 transparent; border-bottom: 3px solid currentColor; }
+.pos-verb { border-bottom: 3px dashed currentColor; }
+.pos-adj { border-bottom: 3px dotted currentColor; }
+.pos-adv { text-decoration: underline wavy currentColor 2px; text-underline-offset: 6px; }
+
+/* sound tiles */
+.tile { position: relative; display: inline-flex; flex-direction: column; align-items: center; min-width: 2.6em; padding: 0.15em 0.35em 0.6em; border-radius: 0.8rem; border: 3px solid currentColor; background: var(--panel); font-weight: 800; transition: transform 0.15s; }
+.tile.lit { transform: translateY(-6px) scale(1.08); background: #fef08a; color: #713f12 !important; }
+.tile .mark { position: absolute; bottom: 0.2em; left: 50%; transform: translateX(-50%); }
+.tile .dot { width: 0.4em; height: 0.4em; border-radius: 50%; background: currentColor; }
+.tile .bar { width: 70%; height: 0.25em; border-radius: 0.2em; background: currentColor; }
+.t-consonant { color: var(--t-consonant); }
+.t-digraph { color: var(--t-digraph); }
+.t-short { color: var(--t-short); }
+.t-long, .t-split { color: var(--t-long); }
+.t-diphthong { color: var(--t-diphthong); }
+.t-r { color: var(--t-r); }
+.t-ending { color: var(--t-ending); }
+.t-silent, .t-mark { color: var(--t-silent); border-style: dashed; }
+.t-irregular { color: var(--t-heart); }
+.tile.is-new { color: var(--t-new); border-style: dotted; }
+.tile.schwa { border-style: double; border-width: 5px; }
+
+.ruler { position: fixed; left: 0; right: 0; height: 3.2em; pointer-events: none; background: rgba(250, 204, 21, 0.18); border-top: 2px solid rgba(250, 204, 21, 0.7); border-bottom: 2px solid rgba(250, 204, 21, 0.7); z-index: 5; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

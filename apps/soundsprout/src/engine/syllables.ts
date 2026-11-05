@@ -39,7 +39,7 @@ export function syllabify(word: string, tiles: Tile[], isWord?: (w: string) => b
     let cutLetter: number | null = null
 
     // compound word: both halves are words
-    const compound = isWord && findCompound(word, tiles, a, b, isWord)
+    const compound = isWord ? findCompound(word, tiles, a, b, isWord) : null
     if (compound !== null) {
       cuts.push(compound)
       continue
@@ -59,7 +59,7 @@ export function syllabify(word: string, tiles: Tile[], isWord?: (w: string) => b
     } else if (between.length === 1) {
       const c = tiles[between[0]]
       const first = tiles[a]
-      if (c.graphemeId && DOUBLES.has(c.graphemeId)) {
+      if ((c.graphemeId && DOUBLES.has(c.graphemeId)) || (c.text.length === 2 && c.text[0].toLowerCase() === c.text[1].toLowerCase())) {
         cutTile = between[0]
         cutLetter = c.start + 1 // rab|bit: split the double
       } else if (first.type === 'long' && first.text.length === 1) {

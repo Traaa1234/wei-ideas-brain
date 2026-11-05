@@ -69,7 +69,7 @@ describe('syllables', () => {
   it.each([
     ['rabbit', 'rab|bit'], ['tiger', 'ti|ger'], ['camel', 'cam|el'], ['table', 'ta|ble'],
     ['about', 'a|bout'], ['running', 'run|ning'], ['hundred', 'hun|dred'], ['sunset', 'sun|set'],
-    ['transportation', 'trans|port|a|tion'], ['nature', 'na|ture'], ['dragon', 'drag|on'],
+    ['transportation', 'trans|port|a|tion'], ['nature', 'na|ture'], ['dragon', 'drag|on'], ['pressure', 'pres|sure'],
   ])('%s → %s', (w, expected) => expect(syl(w)).toBe(expected))
   it('marks the stressed syllable of photography', () => {
     const s = wordInfo(dec, 'photography', all, { common }).syllables
