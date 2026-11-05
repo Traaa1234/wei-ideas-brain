@@ -1,0 +1,30 @@
+{
+  "id": "pip-and-the-pot",
+  "title": "Pip and the Pot",
+  "band": "sprout",
+  "step": "s3",
+  "kind": "story",
+  "genre": "funny",
+  "topics": ["cats", "home"],
+  "series": "Pip the Cat",
+  "number": 1,
+  "cover": "🐱",
+  "color": "#f59e0b",
+  "names": ["Pip"],
+  "retell": "Can you tell me where Pip hid, and how Mom found Pip?",
+  "pages": [
+    { "text": "Pip is a cat.", "art": "🐱" },
+    { "text": "Pip can nap on a mat.", "art": "🐱💤" },
+    { "text": "Pip can nap in a pan.", "art": "🍳🐱" },
+    { "text": "Mom got a pot. It is on a mat.", "art": "👩🍲" },
+    { "text": "Pip sat in the pot!", "art": "🍲🐱" },
+    { "text": "Mom did not spot Pip in the pot.", "art": "👩❓" },
+    { "text": "Tap, tap, tap. Mom got a pin.", "art": "📌" },
+    { "text": "Mom tips the pot. It is Pip!", "art": "🍲🐱❗" },
+    { "text": "Pip is not a pot cat. Go to the mat, Pip!", "art": "🐱➡️🟫" }
+  ],
+  "questions": [
+    { "q": "Where did Pip sit?", "options": ["in the pot", "on a dog", "in a tin"], "answer": 0, "type": "recall" },
+    { "q": "What do you think Pip will do next?", "type": "opinion" }
+  ]
+}

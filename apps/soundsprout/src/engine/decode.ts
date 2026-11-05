@@ -34,6 +34,14 @@ export interface Decoded {
 
 export interface DecodeOptions {
   names?: Set<string>      // lowercase character names known in this book
+  noCompound?: boolean
+}
+
+function heartStem(w: string, heart: Set<string>) {
+  for (const suf of ['s', 'es', 'ed', 'd', 'ing']) {
+    if (w.endsWith(suf) && heart.has(w.slice(0, -suf.length))) return true
+  }
+  return false
 }
 
 const VOWEL_LETTERS = new Set(['a', 'e', 'i', 'o', 'u'])
@@ -74,7 +82,10 @@ function alignOne(word: string, pron: Pron, inv: Inventory | null, allowIrregula
   const endOk = (gr: Grapheme, i: number) => {
     const rest = letters.slice(i + gr.letters.length)
     if (rest === '') return true
-    return rest === 's' && END_PLUS_S.has(gr.id)
+    if (rest === 's' && END_PLUS_S.has(gr.id)) return true
+    // e-final spellings and mb can take an ending: lived, charged, climbed, climbing
+    if (/^(ve|ce|ge|se)$/.test(gr.id) && /^(r|s|st)$/.test(rest)) return true
+    return gr.id === 'mb' && /^(s|ed|ing|er|ers)$/.test(rest)
   }
 
   const solve = (i: number, j: number, pend: number): Best => {
@@ -250,9 +261,36 @@ export class Decoder {
       status = 'new'
       if (irregular) needs.add(`heart:${low}`)
     }
+    // Heart words keep their status with an ending (comes, eyes, islands).
+    if (status === 'new' && inv && heartStem(low, inv.heart)) status = 'heart'
+    // Compounds of two readable words (something, everywhere).
+    if (status === 'new' && inv && !opts.noCompound) {
+      const c = this.compound(clean, inv, opts)
+      if (c) return c
+    }
     // A heart word shows its tricky part: tiles that are new or irregular for this child.
     if (status === 'heart') for (const t of tiles) if (t.isNew) t.irregular = true
     return { word: clean, tiles, pron: best.pron, status, needs: [...needs], syllables }
+  }
+
+  private compound(word: string, inv: Inventory, opts: DecodeOptions): Decoded | null {
+    for (let k = 2; k <= word.length - 2; k++) {
+      const left = word.slice(0, k)
+      const right = word.slice(k)
+      if (!this.lexicon.has(left) || !this.lexicon.has(right)) continue
+      const a = this.decode(left, inv, { ...opts, noCompound: true })
+      const b = this.decode(right, inv, { ...opts, noCompound: true })
+      if (!this.readable(a) || !this.readable(b) || !a.pron || !b.pron) continue
+      // the parts must sound like the whole word (drag + on is not dragon)
+      const whole = new Set(this.lexicon.lookup(word).map((p) => p.map(stripStress).join(' ')))
+      const fits = this.lexicon.lookup(left).some((pa) =>
+        this.lexicon.lookup(right).some((pb) => whole.has([...pa, ...pb].map(stripStress).join(' '))))
+      if (!fits) continue
+      const tiles = [...a.tiles, ...b.tiles.map((t) => ({ ...t, start: t.start + k, partner: t.partner === undefined ? undefined : t.partner + a.tiles.length }))]
+      const status: Status = a.status === 'heart' || b.status === 'heart' ? 'heart' : 'decodable'
+      return { word, tiles, pron: [...(a.pron ?? []), ...(b.pron ?? [])], status, needs: [], syllables: a.syllables + b.syllables }
+    }
+    return null
   }
 
   readable(d: Decoded) {

@@ -84,3 +84,12 @@ describe('word parts', () => {
     ['transportation', 'trans+port+ation'], ['construction', 'con+struct+ion'], ['happier', 'happy+er'],
   ])('%s → %s', (w, expected) => expect(parts(w)).toBe(expected))
 })
+
+describe('heart words and compounds', () => {
+  it('heart words keep their status with an ending', () => expect(status('comes', 's8')).toBe('heart'))
+  it('compounds of readable words are readable', () => {
+    expect(status('something', 's13')).toBe('heart')
+    expect(status('everywhere', 's13')).toBe('heart')
+  })
+  it('a compound must sound like the word', () => expect(status('dragon', 's12')).toBe('new'))
+})

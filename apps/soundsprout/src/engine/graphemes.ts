@@ -171,6 +171,13 @@ export const GRAPHEMES: Grapheme[] = [
   g('ea (break)', 'EY', 'long', 'break', { letters: 'ea' }),
   g('ey (they)', 'EY', 'long', 'they', { letters: 'ey' }),
   g('i (radio)', 'IY', 'long', 'radio', { letters: 'i' }),
+  g('oe', 'OW', 'long', 'toe'),
+  g('sc', 'S', 'digraph', 'science'),
+  g('s (measure)', 'ZH', 'consonant', 'measure', { letters: 's' }),
+  g('ss (pressure)', 'SH', 'digraph', 'pressure', { letters: 'ss' }),
+  g('ure (measure)', 'ER', 'r', 'measure', { letters: 'ure' }),
+  g('ar (dollar)', 'ER', 'r', 'dollar', { letters: 'ar' }),
+  g('ai (mountain)', ['AH', 'IH'], 'short', 'mountain', { letters: 'ai' }),
 ]
 
 export const GRAPHEME_BY_ID = new Map(GRAPHEMES.map((x) => [x.id, x]))

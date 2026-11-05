@@ -1,0 +1,115 @@
+{
+  "id": "volcanoes",
+  "title": "Volcanoes: Mountains of Fire",
+  "band": "explorer",
+  "step": "e3",
+  "kind": "nonfiction",
+  "genre": "science",
+  "topics": [
+    "earth",
+    "volcanoes",
+    "science"
+  ],
+  "cover": "🌋",
+  "color": "#dc2626",
+  "names": [],
+  "organiser": "main-idea",
+  "pages": [
+    {
+      "heading": "What Is a Volcano?",
+      "text": "A volcano is an opening in the surface of the Earth. Hot, melted rock, gas and ash can burst out of it. Over a long time, layers of cooled rock can pile up into a mountain.",
+      "art": "🌋",
+      "caption": "A volcano can look like a mountain with a crater on top."
+    },
+    {
+      "heading": "Deep Under the Ground",
+      "text": "Far below our feet, it is so hot that some rock melts. This melted rock is called magma. Magma is lighter than the solid rock around it, so it slowly rises up.",
+      "art": "⬇️🔥",
+      "fact": "Magma can be hotter than the flame on a stove!"
+    },
+    {
+      "heading": "When a Volcano Erupts",
+      "text": "Gas gets trapped inside the magma, like the bubbles in a shaken bottle of soda. When the pressure is too strong, the volcano erupts. Magma that comes out is called lava.",
+      "art": "💥🌋",
+      "caption": "Lava can flow like a river of fire."
+    },
+    {
+      "heading": "Different Kinds of Eruptions",
+      "text": "Some eruptions are gentle. Runny lava oozes out and spreads slowly. Other eruptions are explosive. Ash and rock blast high into the sky and can block out the sun.",
+      "art": "🌋☁️"
+    },
+    {
+      "heading": "Living Near a Volcano",
+      "text": "Lots of people live near volcanoes. The soil there is rich, so crops grow well. Scientists watch volcanoes closely. They measure shaking ground and gas to predict when an eruption might happen.",
+      "art": "🧑‍🔬🌾",
+      "fact": "A scientist who studies volcanoes is called a volcanologist."
+    },
+    {
+      "heading": "New Land",
+      "text": "Volcanoes can even make new land. When lava flows into the ocean, it cools and turns into hard rock. Some islands were made this way, one layer at a time.",
+      "art": "🏝️🌊"
+    }
+  ],
+  "glossary": [
+    {
+      "word": "volcano",
+      "def": "an opening in the Earth where hot melted rock, gas and ash come out"
+    },
+    {
+      "word": "magma",
+      "def": "hot, melted rock deep under the ground"
+    },
+    {
+      "word": "lava",
+      "def": "magma that has come out onto the surface"
+    },
+    {
+      "word": "erupt",
+      "def": "to burst out suddenly"
+    },
+    {
+      "word": "pressure",
+      "def": "a strong push"
+    },
+    {
+      "word": "predict",
+      "def": "to say what you think will happen next"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What is magma called when it comes out of a volcano?",
+      "options": [
+        "lava",
+        "ash",
+        "soil"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "Why does a volcano erupt?",
+      "options": [
+        "Trapped gas makes too much pressure",
+        "It rains too much",
+        "The sun heats it"
+      ],
+      "answer": 0,
+      "type": "inference"
+    },
+    {
+      "q": "In this book, \"explosive\" means...",
+      "options": [
+        "bursting out with great force",
+        "very slow",
+        "very cold"
+      ],
+      "answer": 0,
+      "type": "vocabulary"
+    },
+    {
+      "q": "Why do people live near volcanoes, even though they can be dangerous?",
+      "type": "inference"
+    }
+  ]
+}

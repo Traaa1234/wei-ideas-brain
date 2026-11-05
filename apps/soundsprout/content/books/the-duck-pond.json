@@ -1,0 +1,31 @@
+{
+  "id": "the-duck-pond",
+  "title": "Splash at the Duck Pond",
+  "band": "sprout",
+  "step": "s7",
+  "kind": "story",
+  "genre": "adventure",
+  "topics": ["animals", "water"],
+  "series": "Pip the Cat",
+  "number": 2,
+  "cover": "🦆",
+  "color": "#0ea5e9",
+  "names": ["Pip", "Gus", "Beth"],
+  "retell": "Tell me what Pip wanted, what went wrong, and how the ducks helped.",
+  "pages": [
+    { "text": "Pip the cat sits on the bank of a big pond.", "art": "🐱🌊" },
+    { "text": "Ducks are in the pond. Quack! Quack! They splash and dip.", "art": "🦆🦆💦" },
+    { "text": "Pip has a wish. \"I wish I had a ship,\" she said.", "art": "🐱💭🚢" },
+    { "text": "Gus the duck swims up. \"I can help,\" said Gus. \"Get into my nest.\"", "art": "🦆🪺" },
+    { "text": "The nest is a fun ship. Pip sits in it. Gus tugs it with his bill.", "art": "🐱🪺🦆" },
+    { "text": "Then the wind gets up. Swish! The nest rocks. Pip hangs on.", "art": "💨🪺😿" },
+    { "text": "Splash! Pip is in the mud. She is wet and sad.", "art": "💦😿🟫" },
+    { "text": "Beth the duck and all the ducks rush to her. They tug and tug.", "art": "🦆🦆🦆🐱" },
+    { "text": "Pip is on the bank. \"Thanks!\" she said. \"Next, I will just fish!\"", "art": "🐱🎣😺" }
+  ],
+  "questions": [
+    { "q": "What did Pip wish for?", "options": ["a ship", "a fish", "a hat"], "answer": 0, "type": "recall" },
+    { "q": "Why was Pip sad?", "options": ["She was wet and in the mud", "She had no lunch", "The ducks left"], "answer": 0, "type": "inference" },
+    { "q": "Would you ride in a duck nest? Why?", "type": "opinion" }
+  ]
+}

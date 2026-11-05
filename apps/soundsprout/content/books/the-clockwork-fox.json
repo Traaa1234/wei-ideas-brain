@@ -1,0 +1,146 @@
+{
+  "id": "the-clockwork-fox",
+  "title": "The Clockwork Fox",
+  "band": "explorer",
+  "step": "e3",
+  "kind": "chapter",
+  "genre": "mystery",
+  "topics": [
+    "inventions",
+    "friendship",
+    "mystery"
+  ],
+  "series": "Workshop Mysteries",
+  "number": 1,
+  "cover": "🦊",
+  "color": "#ea580c",
+  "names": [
+    "Nell",
+    "Pepper",
+    "Hobbs"
+  ],
+  "organiser": "story-map",
+  "pages": [
+    {
+      "chapter": "The Broken Fox",
+      "text": "Nell lived above a workshop at the end of Cobble Lane. Her grandmother, Mrs. Hobbs, was an inventor. The workshop was packed with gears, springs, bolts and tools.",
+      "art": "🏚️⚙️🔧"
+    },
+    {
+      "text": "On the top shelf sat a clockwork fox. It was made of copper, with green glass eyes and a long brass tail. Nell had never seen it move.",
+      "art": "🦊⚙️"
+    },
+    {
+      "text": "\"It stopped working before you were born,\" said Mrs. Hobbs. \"Something is missing inside it, but I never found out what.\"",
+      "art": "👵🦊❓"
+    },
+    {
+      "text": "That night, Nell could not sleep. She crept down the steps with a lamp. She lifted the fox from the shelf and set it on the bench.",
+      "art": "🕯️🦊"
+    },
+    {
+      "text": "She opened a little hatch in its chest. Inside were tiny wheels and a spring, all still. In the middle was an empty slot, as thin as a coin.",
+      "art": "🔍⚙️"
+    },
+    {
+      "chapter": "The Missing Part",
+      "text": "The next morning, Nell made a plan. She would search the whole workshop for the missing part. She began with the boxes on the shelves.",
+      "art": "🗄️🔎"
+    },
+    {
+      "text": "The first box had nails. The second had buttons. The third had a pile of old letters tied with string. One letter had a picture of a fox on it.",
+      "art": "✉️🦊"
+    },
+    {
+      "text": "Nell unfolded the letter. It said: \"The heart of the fox is hidden where the clock tells no time.\"",
+      "art": "📜❤️"
+    },
+    {
+      "text": "Nell frowned. Every clock in the workshop ticked. Then she looked up. High on the wall was a clock with no hands at all.",
+      "art": "🕰️"
+    },
+    {
+      "text": "She dragged a stool across the floor and climbed up. Behind the clock face was a small copper disk, shaped like a heart.",
+      "art": "🪜❤️"
+    },
+    {
+      "chapter": "The Fox Wakes Up",
+      "text": "Nell slid the copper heart into the empty slot. Click! For a second, nothing happened. Then the tiny wheels began to spin.",
+      "art": "❤️⚙️✨"
+    },
+    {
+      "text": "The fox lifted its head. Its green eyes began to glow. It stretched its legs and swished its long brass tail.",
+      "art": "🦊✨"
+    },
+    {
+      "text": "Nell gasped. \"Grandmother! Come quick!\" Mrs. Hobbs rushed in, still in her slippers. Her mouth fell open.",
+      "art": "👧👵😮"
+    },
+    {
+      "text": "\"You found it,\" she said softly. \"Your grandfather hid that heart to keep the fox safe. I thought it was lost for good.\"",
+      "art": "👵🥲"
+    },
+    {
+      "text": "The fox trotted over to Nell and sat at her feet. \"I think it likes you,\" said Mrs. Hobbs. \"It needs a name.\"",
+      "art": "🦊👧"
+    },
+    {
+      "text": "Nell grinned. \"I will call it Pepper,\" she said. And from that day on, Pepper the clockwork fox followed her everywhere.",
+      "art": "🦊👧💛"
+    }
+  ],
+  "glossary": [
+    {
+      "word": "inventor",
+      "def": "a person who makes something new that did not exist before"
+    },
+    {
+      "word": "clockwork",
+      "def": "gears and springs that make something move when you wind it up"
+    },
+    {
+      "word": "copper",
+      "def": "a shiny orange-brown metal"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What was missing from the fox?",
+      "options": [
+        "a copper heart",
+        "a tail",
+        "an eye"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "What does \"crept\" mean in \"She crept down the steps\"?",
+      "options": [
+        "moved quietly",
+        "fell down",
+        "ran fast"
+      ],
+      "answer": 0,
+      "type": "vocabulary"
+    },
+    {
+      "q": "Why did the clue say \"where the clock tells no time\"?",
+      "options": [
+        "The clock had no hands",
+        "The clock was broken in half",
+        "It was night"
+      ],
+      "answer": 0,
+      "type": "inference"
+    },
+    {
+      "q": "Why do you think the grandfather hid the heart?",
+      "type": "inference"
+    },
+    {
+      "q": "Would you like a clockwork pet? What would it be?",
+      "type": "opinion"
+    }
+  ]
+}
