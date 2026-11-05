@@ -1,0 +1,2 @@
+;;; Words and names the CMU dictionary lacks, or American pronunciations we choose.
+;;; Same format: word PHONES (ARPAbet, stress digits on vowels).
