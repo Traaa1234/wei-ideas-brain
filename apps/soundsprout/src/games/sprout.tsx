@@ -12,7 +12,7 @@ import { Empty } from '../ui/kit'
 import { Tiles } from '../ui/Tiles'
 import { GameShell, useRounds } from './shell'
 
-const needMore = <Empty>Learn a few more sounds first, then this game opens up.</Empty>
+const needMore = <Empty>Getting the words ready…</Empty>
 
 export function SoundPop({ profile }: { profile: Profile }) {
   const game = useRounds()

@@ -8,11 +8,13 @@ import { inventoryUpTo, STEPS } from '../engine/curriculum'
 import { inventoryOf, type Profile } from './store'
 
 /**
- * Games are open to everyone from day one. Until a reader has learned enough sounds
- * to make the games work, they use every sound and word in the app.
+ * Games are open to everyone from day one. Until a reader has finished the whole Sprout
+ * course, games use every sound and word in the app, so no game is ever locked.
  */
+const SPROUT_GRAPHEMES = STEPS.filter((s) => s.band === 'sprout').flatMap((s) => s.graphemes)
 export function playInventory(p: Profile): Inventory {
-  return p.graphemes.length >= 20 ? inventoryOf(p) : inventoryUpTo(STEPS[STEPS.length - 1].id)
+  const done = SPROUT_GRAPHEMES.every((g) => p.graphemes.includes(g))
+  return done ? inventoryOf(p) : inventoryUpTo(STEPS[STEPS.length - 1].id)
 }
 
 export const shuffle = <T,>(xs: T[]) => {
