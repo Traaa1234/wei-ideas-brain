@@ -1,6 +1,6 @@
 // Offline support: cache the app shell and the dictionary, serve from cache first,
 // refresh in the background. Bump VERSION to drop old caches.
-const VERSION = 'soundsprout-v1'
+const VERSION = 'soundsprout-v2'
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(['./', './index.html', './dict/cmudict.dict', './dict/extra.dict', './manifest.webmanifest', './icon.svg'])))
   self.skipWaiting()
