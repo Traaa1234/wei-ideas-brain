@@ -24,12 +24,16 @@ export function Home({ profile }: { profile: Profile }) {
       </header>
 
       {resumeBook && (
-        <Card onClick={() => go(`read/${resumeBook.id}/${resume!.spot}`)} className="mb-4 flex items-center gap-4">
+        <Card onClick={() => go(`read/${resumeBook.id}/${resume!.spot}`)} className="mb-4 flex w-full items-center gap-4">
           <span className="text-5xl">{resumeBook.cover}</span>
-          <div>
-            <div className="muted text-sm font-bold">Keep reading</div>
+          <div className="flex-1">
+            <div className="muted text-sm font-bold">📖 Pick up where you left off</div>
             <div className="text-xl font-extrabold">{resumeBook.title}</div>
+            <div className="muted text-sm">
+              You stopped on page {resume!.spot + 1} of {resumeBook.pages.length}. Tap to keep reading.
+            </div>
           </div>
+          <span className="text-2xl" aria-hidden>→</span>
         </Card>
       )}
 
