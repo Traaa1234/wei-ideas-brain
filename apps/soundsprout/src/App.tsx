@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
-import { useRoute, go } from './app/router'
+import { useRoute } from './app/router'
 import { loadDecoder, addPronunciation } from './app/engine'
-import { useActive, useStore } from './app/store'
-import { Profiles } from './screens/Profiles'
+import { newProfile, useActive, useStore } from './app/store'
 import { Home } from './screens/Home'
 import { Library } from './screens/Library'
 import { Reader } from './screens/Reader'
@@ -10,8 +9,7 @@ import { Lesson, LessonMap } from './screens/Lessons'
 import { Game, GamesMenu } from './screens/Games'
 import { Review } from './screens/Review'
 import { Top300, Words } from './screens/Words'
-import { Grownups } from './screens/Grownups'
-import { Placement } from './screens/Placement'
+import { Settings } from './screens/Settings'
 
 export function App() {
   const [hydrated, setHydrated] = useState(useStore.persist.hasHydrated())
@@ -20,8 +18,14 @@ export function App() {
   const profiles = useStore((s) => s.profiles)
 
   useEffect(() => useStore.persist.onFinishHydration(() => setHydrated(true)), [])
+  // One reader, the same for everyone: create it on first launch.
   useEffect(() => {
-    // family words with a grown-up's pronunciation go into the live dictionary
+    if (!hydrated) return
+    const s = useStore.getState()
+    if (!s.profiles.length) s.addProfile(newProfile('Reader', '🌱', 's1'))
+    else if (!s.activeId || !s.profiles.some((p) => p.id === s.activeId)) s.setActive(s.profiles[0].id)
+  }, [hydrated, profiles.length])
+  useEffect(() => {
     loadDecoder().then(() => profiles.forEach((p) => p.myWords.forEach((w) => w.pron && addPronunciation(w.word, w.pron))))
   }, [profiles])
   useEffect(() => {
@@ -31,14 +35,8 @@ export function App() {
     document.querySelector('meta[name=theme-color]')?.setAttribute('content', profile?.band === 'explorer' ? '#0f172a' : '#16a34a')
   }, [profile?.band, profile?.settings.dyslexiaFont])
 
-  if (!hydrated) return null
+  if (!hydrated || !profile) return null
   const [top, a, b] = route
-
-  if (top === 'grownups') return <Grownups section={a} />
-  if (!profile) {
-    if (top) go('')
-    return <Profiles />
-  }
   switch (top) {
     case 'library': return <Library profile={profile} />
     case 'read': return <Reader key={a} profile={profile} bookId={a} pageArg={b} />
@@ -49,7 +47,7 @@ export function App() {
     case 'review': return <Review profile={profile} />
     case 'words': return <Words profile={profile} />
     case 'top300': return <Top300 profile={profile} />
-    case 'placement': return <Placement profile={profile} />
+    case 'settings': return <Settings profile={profile} />
     default: return <Home profile={profile} />
   }
 }

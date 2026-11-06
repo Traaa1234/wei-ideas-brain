@@ -28,7 +28,7 @@ export function GamesMenu({ profile }: { profile: Profile }) {
       <Header title="Games" />
       <Screen>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {list.filter(([, g]) => explorer || g.band === 'sprout').map(([id, g]) => (
+          {list.map(([id, g]) => (
             <Card key={id} onClick={() => go(`game/${id}`)}>
               <div className="text-5xl">{g.emoji}</div>
               <div className="mt-2 font-extrabold">{g.title}</div>

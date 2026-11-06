@@ -6,8 +6,8 @@ import { UPGRADES } from '../data/practice'
 import { MORPHEMES } from '../engine/morphology'
 import { speak } from '../app/audio'
 import { COMMON, useDecoder } from '../app/engine'
-import { decodableWords, sample, shuffle } from '../app/pick'
-import { inventoryOf, useStore, type Profile } from '../app/store'
+import { decodableWords, playInventory, sample, shuffle } from '../app/pick'
+import { useStore, type Profile } from '../app/store'
 import { Tiles } from '../ui/Tiles'
 import { GameShell, useRounds } from './shell'
 
@@ -202,7 +202,7 @@ export function SpellingBee({ profile }: { profile: Profile }) {
   const decoder = useDecoder()
   const game = useRounds()
   const practise = useStore((s) => s.practise)
-  const inv = inventoryOf(profile)
+  const inv = playInventory(profile)
   const words = useMemo(() => (decoder ? decodableWords(decoder, inv, { minSyllables: profile.band === 'explorer' ? 2 : 1 }) : []), [decoder]) // eslint-disable-line react-hooks/exhaustive-deps
   const word = useMemo(() => sample(words, 1)[0], [words, game.round])
   const [typed, setTyped] = useState('')

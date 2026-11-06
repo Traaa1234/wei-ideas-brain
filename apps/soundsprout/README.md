@@ -7,7 +7,7 @@ Two reading bands share one engine:
 - **Sprout** (about 4–7, learning to read): letter sounds → CVC words → digraphs → long vowels → two-syllable words, plus heart words and decodable stories.
 - **Explorer** (about 7–10, reading to learn): open syllables, soft c/g, suffix sounds (-tion, -ture, -ous), alternative spellings, word parts (prefixes, suffixes, Latin and Greek roots), vocabulary, comprehension, chapter books and non-fiction.
 
-A child's band comes from the placement check, not their age. The "look" (Sprout or Explorer) is set separately from the phonics level. That way a 9-year-old working on early sounds gets books and games that don't feel babyish.
+Everyone gets the same app: no sign-in, no profiles, no grown-ups gate. It opens straight into reading. The look (Sprout or Explorer) is chosen in ⚙️ Settings, separately from the phonics level, so a 9-year-old working on early sounds gets books and games that don't feel babyish. All lessons and all 13 games are open from the start; until enough sounds are learned, the games draw on every sound and word in the app.
 
 ## Run it
 
@@ -41,21 +41,20 @@ npm run build      # static site in dist/ (deploy anywhere; it works from a subf
 
 ### Sounds are human recordings
 
-Computer voices are poor at single phonics sounds. In Grown-ups → Record sounds you record each of the 40 sounds in your own voice, 1.5 seconds each. Until you do, a computer-voice stand-in is used, and a setting can switch it off. Whole words and sentences use the device's speech synthesis.
+Computer voices are poor at single phonics sounds. The audio layer (`src/app/audio.ts`) plays a human recording for each sound when one exists; the in-app recorder was removed with the grown-ups area, so for now a computer-voice stand-in is used. Whole words and sentences use the device's speech synthesis.
 
 ### Word banks
 
 - **Top 300:** the public-domain Dolch lists (220 service words + 95 nouns, in Dolch order, cut at 300). Each word is shown as decodable or as a heart word, and counts as mastered after 8 meetings in books. `npm run rank -- <folder>` re-ranks the list by frequency across any corpus you are licensed to use (it writes `content/top-words.json`).
 - **Parts of speech:** a curated bank of nouns, verbs, adjectives and adverbs in sub-categories (animals, moving verbs, colour adjectives...). Running text is tagged in context with [compromise](https://github.com/spencermountain/compromise), offline. "Word Explorer" mode underlines words by part of speech with different line styles, never colours, so the phonics colours stay clear.
 - **Vocabulary:** a starter set of Tier 2 and subject words with original definitions, examples, synonyms and antonyms.
-- **Adding words:** grown-ups can type or paste words, import a CSV, or photograph a list (only on browsers with on-device text detection). For each word the app shows the sound tiles, decodable status, suggested part of speech, and fields for a meaning, example and emoji. Words missing from the dictionary get a "sounds like" pronunciation ("mit too" for Mittu). Explorer readers can collect words while reading, and a grown-up approves them.
+- **Collecting words:** readers tap a word while reading and choose "Collect this word"; it goes straight into their Word Collector.
 
 ### Adaptive practice
 
 - **Mastery:** tracked per grapheme, word, comprehension question type, root and so on, using lesson checks, games and help-taps (a word tapped often counts as weak).
 - **Spaced review:** at 1, 3, 7, 14 and 30 days.
 - **Teach next:** ranks the next sound by how many new words it would unlock for this child.
-- **Placement check:** about 5–10 minutes with a grown-up. It places decoding and comprehension separately.
 
 ## What's here
 
@@ -67,7 +66,7 @@ Computer voices are poor at single phonics sounds. In Grown-ups → Record sound
 | After a book | Questions (recall, vocabulary, inference, opinion), "words I collected" by part of speech, retell prompt (Sprout), written response, rating and review, story map / main-idea organiser (Explorer) |
 | Lessons | Listen → Practice → Play → Read → Check for every step, with practice words and sentences picked to be decodable for the child |
 | Games | Sprout: Sound Pop, Word Builder (grapheme tiles), Real or Alien?, Syllable Chop, Silly Sentences, Word Sort. Explorer: Word Lab, Root Detective, Context Clue Case, Shades of Meaning, Homophone Hero, Sentence Upgrade, Spelling Bee |
-| Grown-ups | Adult gate, several readers, Sprout/Explorer look, dashboard (decoding vs comprehension, sounds strong/weak, words tapped, teach next, Top 300, readable word bank by part of speech, minutes per day, books by genre, home tip, printable sheet), skill toggles, add-a-word, sound recorder, settings, reading goals, export / delete everything |
+| Settings | Sprout/Explorer look, dyslexia-friendly font, spacing, reading ruler, Word Explorer underlines, text size, speech speed, start over. No gate, no profiles |
 | Offline | Service worker caches the app and the dictionary |
 
 ### Not built yet
@@ -80,7 +79,7 @@ Computer voices are poor at single phonics sounds. In Grown-ups → Record sound
 
 ## Privacy
 
-There's no account, no tracking SDK, no ads and no network calls beyond loading the app itself. Profiles, progress, family words and sound recordings live in IndexedDB on the device. Grown-ups can export or delete everything.
+There's no account, no tracking SDK, no ads and no network calls beyond loading the app itself. Progress and collected words live in IndexedDB on the device. Settings → Start over clears them.
 
 ## Credits and licences
 

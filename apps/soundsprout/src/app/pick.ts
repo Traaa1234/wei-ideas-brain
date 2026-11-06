@@ -4,6 +4,16 @@ import { WORD_BANK } from '../data/words'
 import type { Inventory } from '../engine/curriculum'
 import type { Decoder } from '../engine/decode'
 import { tokenize } from '../engine/decode'
+import { inventoryUpTo, STEPS } from '../engine/curriculum'
+import { inventoryOf, type Profile } from './store'
+
+/**
+ * Games are open to everyone from day one. Until a reader has learned enough sounds
+ * to make the games work, they use every sound and word in the app.
+ */
+export function playInventory(p: Profile): Inventory {
+  return p.graphemes.length >= 20 ? inventoryOf(p) : inventoryUpTo(STEPS[STEPS.length - 1].id)
+}
 
 export const shuffle = <T,>(xs: T[]) => {
   const a = [...xs]

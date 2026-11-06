@@ -294,7 +294,7 @@ function EndOfBook({ book, profile }: { book: Book; profile: Profile }) {
                     })}
                   </div>
                 ) : explorer ? (
-                  <textarea className="panel mt-3 w-full rounded-2xl p-3" rows={2} placeholder="Write 1–3 sentences (or tell a grown-up)"
+                  <textarea className="panel mt-3 w-full rounded-2xl p-3" rows={2} placeholder="Write 1–3 sentences"
                     defaultValue={(answers[i] as string) ?? ''}
                     onBlur={(ev) => {
                       const a = { ...answers, [i]: ev.target.value }
@@ -302,7 +302,7 @@ function EndOfBook({ book, profile }: { book: Book; profile: Profile }) {
                       save((e) => (e.answers = a))
                     }} />
                 ) : (
-                  <p className="muted mt-2 text-sm">Talk about it with a grown-up.</p>
+                  <p className="muted mt-2 text-sm">Think about it, or talk about it with someone.</p>
                 )}
               </div>
             ))}
@@ -325,7 +325,7 @@ function EndOfBook({ book, profile }: { book: Book; profile: Profile }) {
 
         {!explorer && book.retell && (
           <section className="panel mt-6 rounded-3xl p-4">
-            <b>For a grown-up:</b> {book.retell}
+            <b>Tell it back:</b> {book.retell}
           </section>
         )}
 

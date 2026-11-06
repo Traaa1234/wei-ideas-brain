@@ -6,8 +6,8 @@ import { GRAPHEME_BY_ID } from '../engine/graphemes'
 import { syllabify } from '../engine/syllables'
 import { playPhones, speak } from '../app/audio'
 import { COMMON, useDecoder } from '../app/engine'
-import { decodableWords, sample, shuffle } from '../app/pick'
-import { inventoryOf, useStore, type Profile } from '../app/store'
+import { decodableWords, playInventory, sample, shuffle } from '../app/pick'
+import { useStore, type Profile } from '../app/store'
 import { Empty } from '../ui/kit'
 import { Tiles } from '../ui/Tiles'
 import { GameShell, useRounds } from './shell'
@@ -17,7 +17,7 @@ const needMore = <Empty>Learn a few more sounds first, then this game opens up.<
 export function SoundPop({ profile }: { profile: Profile }) {
   const game = useRounds()
   const practise = useStore((s) => s.practise)
-  const known = profile.graphemes.filter((g) => GRAPHEME_BY_ID.get(g) && !g.includes('('))
+  const known = [...playInventory(profile).graphemes].filter((g) => GRAPHEME_BY_ID.get(g) && !g.includes('('))
   const round = useMemo(() => {
     const target = sample(known, 1)[0]
     const options = shuffle([target, ...sample(known.filter((g) => g !== target && GRAPHEME_BY_ID.get(g)!.letters !== GRAPHEME_BY_ID.get(target)!.letters), 4)])
@@ -56,13 +56,13 @@ export function WordBuilder({ profile }: { profile: Profile }) {
   const decoder = useDecoder()
   const game = useRounds()
   const practise = useStore((s) => s.practise)
-  const words = useMemo(() => (decoder ? decodableWords(decoder, inventoryOf(profile), { maxSyllables: 1 }).filter((w) => w.length >= 3) : []), [decoder, profile])
+  const words = useMemo(() => (decoder ? decodableWords(decoder, playInventory(profile), { maxSyllables: 1 }).filter((w) => w.length >= 3) : []), [decoder, profile])
   const round = useMemo(() => {
     if (!decoder || !words.length) return null
     const word = sample(words, 1)[0]
-    const tiles = decoder.decode(word, inventoryOf(profile)).tiles.filter((t) => t.type !== 'silent')
+    const tiles = decoder.decode(word, playInventory(profile)).tiles.filter((t) => t.type !== 'silent')
     const pieces = tiles.map((t) => (t.type === 'split' ? `${t.text}_e` : t.text.toLowerCase()))
-    const extras = sample(profile.graphemes.map((g) => GRAPHEME_BY_ID.get(g)?.letters).filter((l): l is string => !!l && !pieces.includes(l)), 3)
+    const extras = sample([...playInventory(profile).graphemes].map((g) => GRAPHEME_BY_ID.get(g)?.letters).filter((l): l is string => !!l && !pieces.includes(l)), 3)
     return { word, pieces, bank: shuffle([...pieces, ...extras]) }
   }, [decoder, words, game.round]) // eslint-disable-line react-hooks/exhaustive-deps
   const [built, setBuilt] = useState<number[]>([])
@@ -104,11 +104,11 @@ export function RealOrAlien({ profile }: { profile: Profile }) {
   const decoder = useDecoder()
   const game = useRounds()
   const practise = useStore((s) => s.practise)
-  const inv = inventoryOf(profile)
+  const inv = playInventory(profile)
   const round = useMemo(() => {
     if (!decoder) return null
     const real = decodableWords(decoder, inv, { maxSyllables: 1 }).filter((w) => w.length >= 3)
-    const can = (s: string) => profile.graphemes.includes(s)
+    const can = (s: string) => [...playInventory(profile).graphemes].includes(s)
     const onsets = ALIEN_PARTS.onsets.filter((o) => [...o].every((c) => can(c)) || can(o))
     const vowels = ALIEN_PARTS.vowels.filter(can)
     const codas = ALIEN_PARTS.codas.filter((o) => can(o) || [...o].every((c) => can(c)))
@@ -146,7 +146,7 @@ export function SyllableChop({ profile }: { profile: Profile }) {
   const decoder = useDecoder()
   const game = useRounds()
   const practise = useStore((s) => s.practise)
-  const all = { graphemes: new Set([...profile.graphemes]), skills: new Set(['syl2', 'syl3', 'schwa']), heart: new Set<string>() }
+  const all = { graphemes: new Set([...[...playInventory(profile).graphemes]]), skills: new Set(['syl2', 'syl3', 'schwa']), heart: new Set<string>() }
   const words = useMemo(() => (decoder ? decodableWords(decoder, all, { minSyllables: 2 }) : []), [decoder]) // eslint-disable-line react-hooks/exhaustive-deps
   const round = useMemo(() => {
     if (!decoder || !words.length) return null
@@ -193,7 +193,7 @@ export function SyllableChop({ profile }: { profile: Profile }) {
 export function SillySentences({ profile }: { profile: Profile }) {
   const decoder = useDecoder()
   const game = useRounds()
-  const inv = inventoryOf(profile)
+  const inv = playInventory(profile)
   const ok = (w: string) => !!decoder && decoder.readable(decoder.decode(w, inv))
   const lists = useMemo(() => {
     const byPos = (p: Pos) => WORD_BANK.filter((w) => w.pos === p && ok(w.word)).map((w) => w.word)
@@ -231,7 +231,7 @@ export function WordSort({ profile }: { profile: Profile }) {
   const decoder = useDecoder()
   const game = useRounds()
   const practise = useStore((s) => s.practise)
-  const inv = inventoryOf(profile)
+  const inv = playInventory(profile)
   const explorer = profile.band === 'explorer'
   const pool = useMemo(
     () => WORD_BANK.filter((w) => ['noun', 'verb', 'adjective', ...(explorer ? ['adverb'] : [])].includes(w.pos) && (!decoder || decoder.readable(decoder.decode(w.word, inv)))),

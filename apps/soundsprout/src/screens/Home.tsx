@@ -2,27 +2,25 @@ import { useMemo } from 'react'
 import { STEPS } from '../engine/curriculum'
 import { BOOKS } from '../data/library'
 import { go } from '../app/router'
-import { dueItems, useStore, type Profile } from '../app/store'
+import { dueItems, type Profile } from '../app/store'
 import { Card, Screen } from '../ui/kit'
 
 export function Home({ profile }: { profile: Profile }) {
-  const setActive = useStore((s) => s.setActive)
   const explorer = profile.band === 'explorer'
   const due = dueItems(profile).length
   const nextStep = STEPS.find((s) => !profile.lessonsDone.includes(s.id) && s.graphemes.some((g) => !profile.graphemes.includes(g))) ?? STEPS.find((s) => !profile.lessonsDone.includes(s.id))
   const resume = useMemo(() => Object.values(profile.reading).filter((r) => r.spot > 0).sort((a, b) => b.lastRead - a.lastRead)[0], [profile.reading])
   const resumeBook = resume && BOOKS.find((b) => b.id === resume.bookId)
-  const pending = profile.myWords.filter((w) => w.status === 'pending').length
 
   return (
     <Screen>
       <header className="flex items-center gap-3 py-5">
-        <button className="text-5xl" onClick={() => { setActive(null); go('') }} aria-label="Switch reader">{profile.avatar}</button>
+        <span className="text-5xl" aria-hidden>{explorer ? '🧭' : '🌱'}</span>
         <div className="flex-1">
-          <h1 className="text-3xl font-extrabold">Hi, {profile.name}!</h1>
+          <h1 className="text-3xl font-extrabold">SoundSprout</h1>
           <p className="muted text-sm">{explorer ? 'Explorer' : 'Sprout'} · {profile.stickers.length} {profile.stickers.length === 1 ? 'book' : 'books'} finished</p>
         </div>
-        <button className="btn-ghost text-sm" onClick={() => go('grownups')}>Grown-ups</button>
+        <button className="btn-ghost text-sm" onClick={() => go('settings')} aria-label="Settings">⚙️ Settings</button>
       </header>
 
       {resumeBook && (
@@ -40,7 +38,7 @@ export function Home({ profile }: { profile: Profile }) {
         <Tile emoji={explorer ? '🧭' : '🗺️'} title={explorer ? 'Missions' : 'Learn'} sub={nextStep ? (explorer ? nextStep.mission : `Next: ${nextStep.mission}`) : 'All done!'} onClick={() => go('lessons')} />
         <Tile emoji="🎮" title="Play" sub={explorer ? 'Word games' : 'Sound games'} onClick={() => go('games')} />
         <Tile emoji="🔁" title="Review" sub={due ? `${due} to practise` : 'All fresh'} onClick={() => go('review')} />
-        <Tile emoji={explorer ? '🗃️' : '🌻'} title={explorer ? 'Word Collector' : 'My garden'} sub={explorer ? `${profile.myWords.length} words${pending ? ` · ${pending} waiting` : ''}` : `${profile.stickers.length + profile.lessonsDone.length} plants`} onClick={() => go('words')} />
+        <Tile emoji={explorer ? '🗃️' : '🌻'} title={explorer ? 'Word Collector' : 'My garden'} sub={explorer ? `${profile.myWords.length} words` : `${profile.stickers.length + profile.lessonsDone.length} plants`} onClick={() => go('words')} />
         <Tile emoji="💯" title="Top 300" sub="High-frequency words" onClick={() => go('top300')} />
       </div>
 

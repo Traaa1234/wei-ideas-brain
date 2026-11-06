@@ -15,7 +15,7 @@ import { WordCard } from '../ui/WordCard'
 
 export function LessonMap({ profile }: { profile: Profile }) {
   const explorer = profile.band === 'explorer'
-  const steps = STEPS.filter((s) => (explorer ? true : s.band === 'sprout'))
+  const steps = STEPS
   return (
     <div>
       <Header title={explorer ? 'Missions' : 'Learning trail'} />
@@ -25,7 +25,7 @@ export function LessonMap({ profile }: { profile: Profile }) {
             const done = profile.lessonsDone.includes(s.id)
             const known = s.graphemes.every((g) => profile.graphemes.includes(g))
             const prevDone = i === 0 || profile.lessonsDone.includes(steps[i - 1].id) || steps[i - 1].graphemes.every((g) => profile.graphemes.includes(g))
-            const open = done || known || prevDone
+            const open = true
             return (
               <li key={s.id} className="relative">
                 <span className="absolute -left-[2.35rem] top-4 flex h-8 w-8 items-center justify-center rounded-full text-sm font-extrabold" style={{ background: done ? 'var(--accent)' : 'var(--panel)', color: done ? 'var(--accent-ink)' : 'var(--ink)', border: '3px solid var(--line)' }}>
@@ -252,7 +252,7 @@ function CheckPhase({ step, words, profile, onDone }: { step: Step; words: strin
           }}>{o}</button>
         ))}
       </div>
-      <p className="muted mt-4 text-sm">Grown-ups see these results. There is no score for you here, just practice.</p>
+      <p className="muted mt-4 text-sm">There is no score here, just practice.</p>
     </div>
   )
 }

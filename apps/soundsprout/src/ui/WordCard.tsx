@@ -84,7 +84,7 @@ export function WordCard({ word, sentence, book, profile, onClose }: { word: str
   const collect = () => {
     update(profile.id, (p) => {
       if (p.myWords.some((m) => m.word === d.word.toLowerCase())) return
-      p.myWords.push({ word: d.word.toLowerCase(), status: 'pending', addedBy: 'child', addedAt: Date.now() })
+      p.myWords.push({ word: d.word.toLowerCase(), status: 'approved', addedBy: 'child', addedAt: Date.now() })
     })
   }
   const collected = profile.myWords.some((m) => m.word === d.word.toLowerCase())
@@ -141,9 +141,6 @@ export function WordCard({ word, sentence, book, profile, onClose }: { word: str
               <p className="muted mt-3 text-center text-sm">
                 New for you: {d.needs.filter((n) => !n.startsWith('heart:')).map(needLabel).join(', ') || 'a tricky part'}
               </p>
-            )}
-            {silent && (
-              <p className="muted mt-3 text-center text-xs">Sounds are quiet until a grown-up records them (Grown-ups → Sounds).</p>
             )}
           </div>
         )}
@@ -208,7 +205,7 @@ export function WordCard({ word, sentence, book, profile, onClose }: { word: str
         {tab === 'meaning' && <Meaning word={d.word} sentence={sentence} book={book} profile={profile} explorer={explorer} />}
       </div>
 
-      {explorer && (
+      {(
         <div className="mt-4 border-t pt-3" style={{ borderColor: 'var(--line)' }}>
           <button className="btn-ghost w-full" onClick={collect} disabled={collected}>
             {collected ? '✓ In your Word Collector' : '＋ Collect this word'}
@@ -261,7 +258,7 @@ function Meaning({ word, sentence, book, profile, explorer }: { word: string; se
         )}
       </div>
       {pos && <p className="muted text-sm">{POS_LABEL[pos].help}</p>}
-      {def ? <p className="text-lg"><b>Means:</b> {def}</p> : <p className="muted">No meaning saved yet. A grown-up can add one in Grown-ups → Words.</p>}
+      {def ? <p className="text-lg"><b>Means:</b> {def}</p> : <p className="muted">No meaning saved for this word yet.</p>}
       {example && <p className="read text-lg italic">“{example}”</p>}
       {forms.length > 0 && <p><b>Other forms:</b> {forms.join(', ')}</p>}
       {explorer && vocab?.synonyms && <p><b>Similar:</b> {vocab.synonyms.join(', ')}</p>}

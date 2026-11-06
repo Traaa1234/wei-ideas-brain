@@ -35,12 +35,12 @@ export function Words({ profile }: { profile: Profile }) {
         <section className="mt-6">
           <h2 className="text-xl font-extrabold">{explorer ? 'Words I collected' : 'My words'}</h2>
           {mine.length === 0 ? (
-            <p className="muted text-sm">{explorer ? 'Tap a word while reading, then “Collect this word”.' : 'A grown-up can add your own words (family names, pets, favourite things).'}</p>
+            <p className="muted text-sm">{explorer ? 'Tap a word while reading, then “Collect this word”.' : 'Finish books and lessons to grow your garden.'}</p>
           ) : (
             <div className="mt-2 flex flex-wrap gap-2">
               {mine.map((w) => (
                 <button key={w.word} className="btn-ghost" onClick={() => setCard(w.word)}>
-                  {w.emoji} {w.word} {w.status === 'pending' && <span className="muted text-xs">(waiting for a grown-up)</span>}
+                  {w.emoji} {w.word} 
                 </button>
               ))}
             </div>
