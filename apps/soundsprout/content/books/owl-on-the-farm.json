@@ -1,0 +1,81 @@
+{
+  "title": "Owl on the Farm",
+  "band": "sprout",
+  "step": "s9",
+  "kind": "story",
+  "genre": "animals",
+  "topics": [
+    "farm",
+    "night",
+    "animals"
+  ],
+  "series": "Star Farm",
+  "number": 1,
+  "cover": "🦉",
+  "color": "#4338ca",
+  "names": [
+    "Mark"
+  ],
+  "retell": "What did the owl help Mark with?",
+  "pages": [
+    {
+      "text": "Mark has a farm with a cow, a pig and a hen.",
+      "art": "🚜🐮🐷🐔"
+    },
+    {
+      "text": "At night, the farm is dark.",
+      "art": "🌙"
+    },
+    {
+      "text": "Mark hears a hoot.",
+      "art": "👂🦉"
+    },
+    {
+      "text": "It is an owl in the barn.",
+      "art": "🦉🏚️"
+    },
+    {
+      "text": "The owl looks down at the pig.",
+      "art": "🦉👀🐷"
+    },
+    {
+      "text": "The pig is in the corn! The pig is not good!",
+      "art": "🐷🌽"
+    },
+    {
+      "text": "Mark runs to the barn with a torch.",
+      "art": "🔦🏃"
+    },
+    {
+      "text": "Shoo, pig! Get back to the pen!",
+      "art": "🐷➡️"
+    },
+    {
+      "text": "\"Thank you, owl,\" said Mark. \"You are a star!\"",
+      "art": "🦉⭐"
+    }
+  ],
+  "questions": [
+    {
+      "q": "Where was the pig?",
+      "options": [
+        "in the corn",
+        "in the barn",
+        "in bed"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "How did the owl help?",
+      "options": [
+        "It looked at the pig and hooted",
+        "It ate the corn",
+        "It slept"
+      ],
+      "answer": 0,
+      "type": "inference"
+    }
+  ],
+  "id": "owl-on-the-farm"
+}

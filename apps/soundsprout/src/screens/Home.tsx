@@ -37,13 +37,22 @@ export function Home({ profile }: { profile: Profile }) {
         </Card>
       )}
 
+      <Card onClick={() => go('school')} className="mb-4 flex w-full items-center gap-4" >
+        <span className="text-5xl" aria-hidden>🎓</span>
+        <div className="flex-1">
+          <div className="text-xl font-extrabold">Sound School</div>
+          <div className="muted text-sm">Learn how to say every sound and blend sounds into words. Start here!</div>
+        </div>
+        <span className="text-2xl" aria-hidden>→</span>
+      </Card>
+
       <div className="grid grid-cols-2 gap-3">
         <Tile emoji="📚" title="Read" sub="Your library" onClick={() => go('library')} />
         <Tile emoji={explorer ? '🧭' : '🗺️'} title={explorer ? 'Missions' : 'Learn'} sub={nextStep ? (explorer ? nextStep.mission : `Next: ${nextStep.mission}`) : 'All done!'} onClick={() => go('lessons')} />
         <Tile emoji="🎮" title="Play" sub={explorer ? 'Word games' : 'Sound games'} onClick={() => go('games')} />
         <Tile emoji="🔁" title="Review" sub={due ? `${due} to practise` : 'All fresh'} onClick={() => go('review')} />
         <Tile emoji={explorer ? '🗃️' : '🌻'} title={explorer ? 'Word Collector' : 'My garden'} sub={explorer ? `${profile.myWords.length} words` : `${profile.stickers.length + profile.lessonsDone.length} plants`} onClick={() => go('words')} />
-        <Tile emoji="💯" title="Top 300" sub="High-frequency words" onClick={() => go('top300')} />
+        <Tile emoji="💯" title="Top words" sub="The 1,000 most used words, ranked" onClick={() => go('top300')} />
       </div>
 
       {explorer && profile.goals.length > 0 && (

@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "check": "tsx tools/check-books.ts",
-    "rank": "tsx tools/rank-words.ts"
+    "rank": "tsx tools/rank-words.ts",
+    "top-words": "tsx tools/build-top-words.ts"
   },
   "dependencies": {
     "compromise": "^14.14.4",

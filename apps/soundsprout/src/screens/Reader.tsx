@@ -131,7 +131,10 @@ function PageView({ page, book, profile, mode, chapterNo }: { page: Page; book: 
   const [speaking, setSpeaking] = useState<number>(-1)
   const [pos, setPos] = useState<Pos[]>([])
   const s = profile.settings
-  const tokens = useMemo(() => tokenize(page.text), [page.text])
+  // plays: "Fox: Oh no!" shows the speaker as a label, and only the line is read
+  const speaker = book.kind === 'script' ? page.text.match(/^([A-Z][A-Za-z ]*):\s*/) : null
+  const text = speaker ? page.text.slice(speaker[0].length) : page.text
+  const tokens = useMemo(() => tokenize(text), [text])
 
   // word index → char offset, for Listen & follow highlighting
   const offsets = useMemo(() => {
@@ -146,13 +149,13 @@ function PageView({ page, book, profile, mode, chapterNo }: { page: Page; book: 
 
   useEffect(() => {
     if (!s.posMode) return setPos([])
-    tagText(page.text).then(setPos)
-  }, [page.text, s.posMode])
+    tagText(text).then(setPos)
+  }, [text, s.posMode])
 
   useEffect(() => {
     if (mode !== 'listen') return
     let live = true
-    speak(page.text, {
+    speak(text, {
       rate: s.speechRate,
       onWord: (ci) => {
         if (!live) return
@@ -166,16 +169,16 @@ function PageView({ page, book, profile, mode, chapterNo }: { page: Page; book: 
       stopSpeaking()
       setSpeaking(-1)
     }
-  }, [mode, page.text, offsets, s.speechRate])
+  }, [mode, text, offsets, s.speechRate])
 
   const sentenceOf = (charAt: number) => {
-    const parts = page.text.split(/(?<=[.!?]["”]?)\s+/)
+    const parts = text.split(/(?<=[.!?]["”]?)\s+/)
     let acc = 0
     for (const p of parts) {
       if (charAt <= acc + p.length) return p
       acc += p.length + 1
     }
-    return page.text
+    return text
   }
 
   let wordNo = -1
@@ -191,7 +194,8 @@ function PageView({ page, book, profile, mode, chapterNo }: { page: Page; book: 
         </div>
       )}
       {page.caption && <p className="muted -mt-3 mb-4 text-center text-sm italic">{page.caption}</p>}
-      <p className={`read font-semibold ${s.spacing ? 'spaced' : ''}`} style={{ fontSize: `${size}rem`, lineHeight: 1.7 }}>
+      {speaker && <p className="mb-2"><span className="chip !text-lg">🎭 {speaker[1]}</span></p>}
+      <p className={`read font-semibold ${s.spacing ? 'spaced' : ''}`} style={{ fontSize: `${size}rem`, lineHeight: 1.7, whiteSpace: 'pre-line' }}>
         {tokens.map((t, i) => {
           const start = charAt
           charAt += t.text.length

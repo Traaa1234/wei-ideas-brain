@@ -20,6 +20,15 @@ cake make lake game name gate these theme bike kite time ride hide like home bon
 jumped helped looked lived filled played wanted needed landed liked baked hoped
 happy funny sunny my fly cry try sky table little apple bubble snow grow slow show head bread
 rabbit kitten muffin dinner hammer carrot puppet sunset cupcake picnic basket dragon wagon lemon tiger robot
+sit sip tan tip nip man mint dim dip and sand stand pond pump camp lamp jump hunt mud rust nest best rest
+crab drum flag clap slip snap spot stop swim trip frog plum grab skip spin step
+shell shed shut chin chest much lunch bench bath moth thick math think sing wing long
+sail rain chain feet sweet green light bright right coat soap road moon spoon roof
+cart barn horn storm burn curl term clown brown coil soil fear hair stair
+tray clay shout round tie field team peach boy coin bird shirt true saw yawn whale
+gate plate shake bike slide smile bone stone note mule tube
+asked jumped hugged rested added
+puppy sunny bunny jelly candle bottle little sniffle ribbon pillow yellow
 baby even open music city cell gem giant prince large cheese bridge match knot write lamb sign
 station action nation vision magician nature picture famous animal
 school chef key eight vein author caught thought sour care more door fruit laugh field son want word put learn
@@ -64,6 +73,20 @@ The giant ate a huge cake at the city gate.
 The magician did a trick at the station.
 The famous chef made a picture with fruit.
 Our school has a key for each door.
+Tim sat in a pit.
+A red bug is on the rug.
+The fox is in a box and the hen is on a log.
+Get the jam, Jen! It is in the van.
+Which fish is in the dish?
+A goat and a sheep sleep in the shade.
+Mark and his dog ran to the farm.
+The cook made a cake for the king.
+Kate rode her bike to the lake.
+Up in the sky, the stars shine at night.
+We hopped and skipped to the park.
+The frog jumped into the pond with a splash.
+Look at the rainbow after the storm!
+The puppy wagged its tail and licked my hand.
 `.trim().split('\n')
 
 /** Sentences for Sentence Upgrade: [plain, slot, choices]. */
@@ -73,4 +96,9 @@ export const UPGRADES: { plain: string; slot: string; kind: 'adjective' | 'adver
   { plain: 'We went home. It was raining.', slot: 'conjunction', kind: 'conjunction', choices: ['because', 'and', 'so'], template: 'We went home {x} it was raining.' },
   { plain: 'The ship sailed.', slot: 'adjective', kind: 'adjective', choices: ['enormous', 'tiny', 'rusty'], template: 'The {x} ship sailed.' },
   { plain: 'She whispered.', slot: 'adverb', kind: 'adverb', choices: ['softly', 'nervously', 'gently'], template: 'She whispered {x}.' },
+  { plain: 'The dragon flew.', slot: 'adjective', kind: 'adjective', choices: ['tiny', 'gigantic', 'sleepy'], template: 'The {x} dragon flew.' },
+  { plain: 'I like ice cream. I like cake.', slot: 'conjunction', kind: 'conjunction', choices: ['and', 'but', 'or'], template: 'I like ice cream {x} I like cake.' },
+  { plain: 'The cat crept.', slot: 'adverb', kind: 'adverb', choices: ['quietly', 'slowly', 'carefully'], template: 'The cat crept {x}.' },
+  { plain: 'We wore coats. It was cold.', slot: 'conjunction', kind: 'conjunction', choices: ['because', 'so', 'when'], template: 'We wore coats {x} it was cold.' },
+  { plain: 'A storm came.', slot: 'adjective', kind: 'adjective', choices: ['wild', 'loud', 'sudden'], template: 'A {x} storm came.' },
 ]

@@ -1,6 +1,6 @@
 // Offline support: pages load from the network first (cache when offline); files
 // (hashed assets, dictionary) load from cache first and refresh in the background. Bump VERSION to drop old caches.
-const VERSION = 'soundsprout-v3'
+const VERSION = 'soundsprout-v4'
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(['./', './index.html', './dict/cmudict.dict', './dict/extra.dict', './manifest.webmanifest', './icon.svg'])))
   self.skipWaiting()

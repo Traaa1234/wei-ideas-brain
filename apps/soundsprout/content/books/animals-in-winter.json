@@ -1,0 +1,111 @@
+{
+  "title": "How Animals Survive Winter",
+  "band": "explorer",
+  "step": "e3",
+  "kind": "nonfiction",
+  "genre": "science",
+  "topics": [
+    "animals",
+    "seasons",
+    "science"
+  ],
+  "cover": "❄️",
+  "color": "#0ea5e9",
+  "organiser": "main-idea",
+  "pages": [
+    {
+      "heading": "A Hard Season",
+      "text": "Winter can be a hard time for animals. The days are short, the nights are long, and the air is freezing cold. Food is difficult to find under the snow. Animals have three main ways to survive: they rest, they move away, or they stay and adapt.",
+      "art": "❄️🌲",
+      "caption": "Snow covers the food that many animals eat."
+    },
+    {
+      "heading": "Getting Ready",
+      "text": "Many animals start getting ready in the fall. Squirrels gather nuts and hide them in the ground. Bears eat and eat until they are fat. That extra fat keeps them warm and gives them energy later.",
+      "art": "🐿️🌰🐻",
+      "fact": "A squirrel can hide thousands of nuts in one fall, and it uses its nose to find them again."
+    },
+    {
+      "heading": "Resting Through the Cold",
+      "text": "Some animals go into a deep winter rest called hibernation. Their hearts beat slowly and their bodies cool down, so they use very little energy. Bats, groundhogs and some frogs hibernate until spring.",
+      "art": "🦇😴",
+      "caption": "A hibernating bat hangs upside down in a cave."
+    },
+    {
+      "heading": "Moving Away",
+      "text": "Other animals travel to warmer places where food is easy to find. This trip is called migration. Geese fly south in a V shape, and some butterflies travel thousands of miles. In spring they return home.",
+      "art": "🪿🦋➡️",
+      "fact": "Flying in a V shape helps geese save energy, because each bird gets a little lift from the bird in front."
+    },
+    {
+      "heading": "Staying Active",
+      "text": "Some animals stay active all winter. Foxes and deer grow thick winter coats. The snowshoe hare turns white, so it is hard to spot in the snow. This is called camouflage. Chickadees fluff up their feathers to trap warm air.",
+      "art": "🦊🐇🤍",
+      "caption": "A snowshoe hare in its white winter coat."
+    }
+  ],
+  "glossary": [
+    {
+      "word": "survive",
+      "def": "to stay alive through something hard"
+    },
+    {
+      "word": "hibernation",
+      "def": "a deep winter rest that saves energy"
+    },
+    {
+      "word": "migration",
+      "def": "a long trip to a new place when the seasons change"
+    },
+    {
+      "word": "camouflage",
+      "def": "colors or shapes that help an animal hide"
+    },
+    {
+      "word": "adapt",
+      "def": "to change to fit a place or a problem"
+    },
+    {
+      "word": "energy",
+      "def": "the power a body needs to move and stay warm"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What are the three main ways animals survive winter?",
+      "options": [
+        "rest, move away, or stay and adapt",
+        "eat, sleep, and play",
+        "swim, dig, and climb"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "What does \"migration\" mean?",
+      "options": [
+        "a long trip to a new place",
+        "a deep sleep",
+        "a white coat"
+      ],
+      "answer": 0,
+      "type": "vocabulary"
+    },
+    {
+      "q": "Why does a snowshoe hare turn white?",
+      "options": [
+        "so it is hard to spot in the snow",
+        "because it is cold",
+        "because it is old"
+      ],
+      "answer": 0,
+      "type": "inference"
+    },
+    {
+      "q": "Which way of surviving winter would you choose? Why?",
+      "type": "opinion"
+    }
+  ],
+  "id": "animals-in-winter",
+  "names": []
+}

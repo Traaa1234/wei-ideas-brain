@@ -1,0 +1,70 @@
+{
+  "title": "Gus the Mud Pup",
+  "band": "sprout",
+  "step": "s4",
+  "kind": "story",
+  "genre": "funny",
+  "topics": [
+    "dogs",
+    "mud"
+  ],
+  "series": "First Reads",
+  "number": 2,
+  "cover": "🐶",
+  "color": "#a16207",
+  "names": [
+    "Gus"
+  ],
+  "retell": "Tell me how Gus got muddy, and how Mum got him clean.",
+  "pages": [
+    {
+      "text": "Gus is a pup. Gus can dig.",
+      "art": "🐶"
+    },
+    {
+      "text": "Gus digs and digs in the mud.",
+      "art": "🐶🟫"
+    },
+    {
+      "text": "Gus gets mud on a sock.",
+      "art": "🧦🟫"
+    },
+    {
+      "text": "Gus tugs at a red sock. Tug, tug!",
+      "art": "🐶🧦"
+    },
+    {
+      "text": "Mum runs up. \"Gus! Get up!\"",
+      "art": "👩🏃"
+    },
+    {
+      "text": "Gus is a mud pup. Mum gets a rag.",
+      "art": "🐶🟫🧽"
+    },
+    {
+      "text": "Mum dips the rag. Pat, pat, pat.",
+      "art": "🧽💦"
+    },
+    {
+      "text": "Gus is not a mud pup. Gus is a nap pup!",
+      "art": "🐶😴"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What did Gus tug?",
+      "options": [
+        "a red sock",
+        "a rag",
+        "a cup"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "What would you do with a muddy pup?",
+      "type": "opinion"
+    }
+  ],
+  "id": "gus-the-mud-pup"
+}

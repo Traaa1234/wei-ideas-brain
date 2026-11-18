@@ -1,0 +1,50 @@
+{
+  "title": "Rain Rhyme",
+  "band": "sprout",
+  "step": "s13",
+  "kind": "poem",
+  "genre": "poetry",
+  "topics": [
+    "weather",
+    "rain"
+  ],
+  "cover": "🌧️",
+  "color": "#2563eb",
+  "names": [],
+  "retell": "Say the poem together. Clap on drip and drop!",
+  "pages": [
+    {
+      "text": "Drip, drop, drip, drop,\nthe rain will never stop.",
+      "art": "🌧️"
+    },
+    {
+      "text": "Puddles here and puddles there,\nsplash in puddles everywhere!",
+      "art": "💦👢"
+    },
+    {
+      "text": "Pitter, patter, tap and tip,\nrain is on my nose and lip.",
+      "art": "💧👃"
+    },
+    {
+      "text": "Then the sun comes peeking out.\nRainbow time! Let us twirl and shout!",
+      "art": "🌈☀️"
+    }
+  ],
+  "questions": [
+    {
+      "q": "Which words rhyme with \"drop\"?",
+      "options": [
+        "stop",
+        "rain",
+        "sun"
+      ],
+      "answer": 0,
+      "type": "vocabulary"
+    },
+    {
+      "q": "What do you like to do on a rainy day?",
+      "type": "opinion"
+    }
+  ],
+  "id": "rain-rhyme"
+}

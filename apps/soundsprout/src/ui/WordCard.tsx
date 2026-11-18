@@ -12,8 +12,9 @@ import { COMMON, useDecoder } from '../app/engine'
 import { posOfWord, relatedForms } from '../app/pos'
 import { inventoryOf, useStore, type Profile } from '../app/store'
 import { Tiles } from './Tiles'
+import { BlendCoach } from './BlendCoach'
 
-type Tab = 'sounds' | 'syllables' | 'parts' | 'meaning'
+type Tab = 'sounds' | 'coach' | 'syllables' | 'parts' | 'meaning'
 
 export function WordCard({ word, sentence, book, profile, onClose }: { word: string; sentence?: string; book?: Book; profile: Profile; onClose: () => void }) {
   const decoder = useDecoder()
@@ -91,6 +92,7 @@ export function WordCard({ word, sentence, book, profile, onClose }: { word: str
 
   const tabs: [Tab, string][] = [
     ['sounds', 'Sounds'],
+    ...(d.tiles.length > 1 && !isWhole ? ([['coach', '🎓 Coach me']] as [Tab, string][]) : []),
     ...(long ? ([['syllables', 'Syllables']] as [Tab, string][]) : []),
     ...(info.parts.length > 1 ? ([['parts', 'Parts']] as [Tab, string][]) : []),
     ['meaning', 'Meaning'],
@@ -144,6 +146,8 @@ export function WordCard({ word, sentence, book, profile, onClose }: { word: str
             )}
           </div>
         )}
+
+        {tab === 'coach' && <BlendCoach word={d.word} tiles={d.tiles} profile={profile} />}
 
         {tab === 'syllables' && (
           <div>

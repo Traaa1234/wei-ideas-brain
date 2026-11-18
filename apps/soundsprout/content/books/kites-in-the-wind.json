@@ -1,0 +1,80 @@
+{
+  "title": "Kites in the Wind",
+  "band": "sprout",
+  "step": "s11",
+  "kind": "story",
+  "genre": "friendship",
+  "topics": [
+    "kites",
+    "wind",
+    "friends"
+  ],
+  "series": "Kate and Mike",
+  "number": 1,
+  "cover": "🪁",
+  "color": "#0891b2",
+  "names": [
+    "Kate",
+    "Mike"
+  ],
+  "retell": "What went wrong with the blue kite, and how did Kate and Mike fix it?",
+  "pages": [
+    {
+      "text": "It is a fine day. Kate and Mike have kites.",
+      "art": "☀️🪁🪁"
+    },
+    {
+      "text": "Kate has a pink kite with a long tail.",
+      "art": "🩷🪁"
+    },
+    {
+      "text": "Mike has a blue kite like a snake.",
+      "art": "💙🪁🐍"
+    },
+    {
+      "text": "They run up the hill and let the kites go.",
+      "art": "⛰️🏃🏃"
+    },
+    {
+      "text": "Up, up, up! The kites ride on the wind.",
+      "art": "🪁💨"
+    },
+    {
+      "text": "Then the wind stops. The blue kite dives to the ground.",
+      "art": "🪁⬇️"
+    },
+    {
+      "text": "Kate spots it. She runs and grabs the line.",
+      "art": "🏃‍♀️🧵"
+    },
+    {
+      "text": "Kate and Mike tie the kites side by side.",
+      "art": "🪢"
+    },
+    {
+      "text": "Now the kites rise up as one.",
+      "art": "🪁🪁⬆️"
+    },
+    {
+      "text": "Kate and Mike smile. It is the best kite day of all!",
+      "art": "😊😊"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What color was Mike’s kite?",
+      "options": [
+        "blue",
+        "pink",
+        "red"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "Why did they tie the kites side by side?",
+      "type": "inference"
+    }
+  ],
+  "id": "kites-in-the-wind"
+}

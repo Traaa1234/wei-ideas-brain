@@ -10,6 +10,7 @@ import { Game, GamesMenu } from './screens/Games'
 import { Review } from './screens/Review'
 import { Top300, Words } from './screens/Words'
 import { Settings } from './screens/Settings'
+import { SoundSchool } from './screens/SoundSchool'
 
 export function App() {
   const [hydrated, setHydrated] = useState(useStore.persist.hasHydrated())
@@ -48,6 +49,7 @@ export function App() {
     case 'words': return <Words profile={profile} />
     case 'top300': return <Top300 profile={profile} />
     case 'settings': return <Settings profile={profile} />
+    case 'school': return <SoundSchool key={a ?? 'index'} profile={profile} chapter={a} />
     default: return <Home profile={profile} />
   }
 }

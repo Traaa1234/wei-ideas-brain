@@ -1,0 +1,64 @@
+{
+  "title": "The Quick Fox",
+  "band": "sprout",
+  "step": "s6",
+  "kind": "story",
+  "genre": "adventure",
+  "topics": [
+    "animals",
+    "friendship"
+  ],
+  "series": "First Reads",
+  "number": 3,
+  "cover": "🦊",
+  "color": "#ea580c",
+  "names": [],
+  "retell": "How did the fox and the pup become pals?",
+  "pages": [
+    {
+      "text": "A fox sits in a box.",
+      "art": "🦊📦"
+    },
+    {
+      "text": "Yap! Yap! A pup runs up.",
+      "art": "🐶"
+    },
+    {
+      "text": "The fox jumps up and hops off.",
+      "art": "🦊💨"
+    },
+    {
+      "text": "The fox is quick. The pup is quick.",
+      "art": "🦊🐶"
+    },
+    {
+      "text": "Zip! Zap! The fox and the pup zigzag up a hill.",
+      "art": "⛰️"
+    },
+    {
+      "text": "The fox gets to a web. The pup sits and pants.",
+      "art": "🕸️🐶"
+    },
+    {
+      "text": "Yes, they are pals.",
+      "art": "🦊❤️🐶"
+    }
+  ],
+  "questions": [
+    {
+      "q": "Where did the fox sit at the start?",
+      "options": [
+        "in a box",
+        "in a bed",
+        "on a hill"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "Do you think the fox and the pup will play again?",
+      "type": "opinion"
+    }
+  ],
+  "id": "the-quick-fox"
+}

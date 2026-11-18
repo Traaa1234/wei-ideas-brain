@@ -1,0 +1,116 @@
+{
+  "title": "Pepper and the Night Market",
+  "band": "explorer",
+  "step": "e3",
+  "kind": "chapter",
+  "genre": "mystery",
+  "topics": [
+    "inventions",
+    "friendship",
+    "mystery"
+  ],
+  "series": "Workshop Mysteries",
+  "number": 2,
+  "cover": "🏮",
+  "color": "#7c3aed",
+  "names": [
+    "Nell",
+    "Pepper",
+    "Hobbs",
+    "Rosa"
+  ],
+  "organiser": "story-map",
+  "pages": [
+    {
+      "chapter": "Lights on Cobble Lane",
+      "text": "Once a month, a night market filled Cobble Lane. Lanterns swung from strings, and the air smelled of roasted nuts and hot cocoa. Nell walked between the stalls with Pepper, her clockwork fox, trotting at her side.",
+      "art": "🏮🌰☕"
+    },
+    {
+      "text": "Pepper loved the market. Its green glass eyes glowed brighter whenever it saw something shiny. It stopped at a stall full of old clocks and wound-up toys.",
+      "art": "🦊✨🕰️"
+    },
+    {
+      "text": "Behind the stall sat a girl about Nell’s age. Her name was Rosa. She looked worried. \"Someone took the key to my music box,\" she said. \"It was here a minute ago.\"",
+      "art": "👧🎶❓"
+    },
+    {
+      "text": "Nell bent down to look. On the table was a trail of tiny scratches, as if something small had been dragged across the wood. The scratches led to the edge of the table and stopped.",
+      "art": "🔍"
+    },
+    {
+      "chapter": "Follow the Clues",
+      "text": "Pepper sniffed the scratches. Then it lifted its brass tail and pointed under the next stall, where a ginger cat was curled up asleep.",
+      "art": "🦊👉🐈"
+    },
+    {
+      "text": "Nell crept closer. The cat was sleeping on top of something that glinted in the lantern light. Very gently, Nell lifted one sleepy paw. Underneath was a small silver key.",
+      "art": "🐈🔑"
+    },
+    {
+      "text": "\"The cat must have batted it off the table!\" said Rosa, laughing with relief. She wound up the music box, and a sweet tune drifted over the market.",
+      "art": "🎶😄"
+    },
+    {
+      "text": "Rosa gave Pepper a tiny brass bell to wear on its collar. \"For the best detective on Cobble Lane,\" she said. Pepper wagged its tail, and the bell rang all the way home.",
+      "art": "🦊🔔🏠"
+    }
+  ],
+  "glossary": [
+    {
+      "word": "lantern",
+      "def": "a lamp you can carry, often with a handle"
+    },
+    {
+      "word": "stall",
+      "def": "a small table or stand where things are sold"
+    },
+    {
+      "word": "detective",
+      "def": "a person who looks for clues to solve a mystery"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What was missing?",
+      "options": [
+        "the key to a music box",
+        "a lantern",
+        "Pepper’s bell"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "What clue did Nell find on the table?",
+      "options": [
+        "tiny scratches",
+        "a feather",
+        "a footprint"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "Why did the cat have the key?",
+      "options": [
+        "It batted it off the table",
+        "Rosa gave it the key",
+        "Pepper hid it there"
+      ],
+      "answer": 0,
+      "type": "inference"
+    },
+    {
+      "q": "What does \"relief\" mean in \"laughing with relief\"?",
+      "options": [
+        "happy that a worry is over",
+        "very tired",
+        "surprised and scared"
+      ],
+      "answer": 0,
+      "type": "vocabulary"
+    }
+  ],
+  "id": "pepper-and-the-night-market"
+}

@@ -17,11 +17,21 @@ export const DOLCH = {
 export const DOLCH_LEVEL: Record<string, string> = {}
 for (const [level, words] of Object.entries(DOLCH)) for (const w of words) DOLCH_LEVEL[w.toLowerCase()] ??= level
 
-/** The Top 300, in teaching order, with source and rank. */
-export const TOP_300: { word: string; rank: number; source: string }[] = Object.entries(DOLCH)
-  .flatMap(([level, words]) => words.map((w) => ({ word: w, source: `Dolch ${level}` })))
-  .slice(0, 300)
-  .map((x, i) => ({ ...x, rank: i + 1 }))
+import TOP_WORDS_JSON from '../../content/top-words.json'
+
+/**
+ * The Top 1,000: most frequent everyday English words, ranked by how often they are used
+ * (FrequencyWords, OpenSubtitles 2018 counts, CC BY-SA 4.0), filtered for children.
+ * Rebuild with `npm run top-words -- <en_50k.txt>`.
+ */
+export const TOP_WORDS: { word: string; rank: number; count: number; dolch?: string }[] = (TOP_WORDS_JSON as { words: { word: string; rank: number; count: number }[] }).words.map((w) => ({
+  ...w,
+  dolch: DOLCH_LEVEL[w.word.toLowerCase()],
+}))
+export const TOP_WORDS_SOURCE = (TOP_WORDS_JSON as { source: string }).source
+
+/** The first 300 of the ranked list. */
+export const TOP_300 = TOP_WORDS.slice(0, 300).map((w) => ({ ...w, source: `rank ${w.rank}` }))
 
 export type Pos = 'noun' | 'verb' | 'adjective' | 'adverb' | 'pronoun' | 'preposition' | 'conjunction' | 'little'
 
@@ -57,10 +67,43 @@ export const WORD_BANK: BankWord[] = [
   ...bank('adjective', 'senses', 'hot cold wet soft loud sweet sharp smooth fresh bright dark crunchy'),
   ...bank('adjective', 'how it is', 'quick slow rich sick deep fast strong funny'),
   ...bank('adverb', 'how', 'quickly slowly softly loudly gently sadly'),
+  ...bank('noun', 'animals', 'lion:🦁 bear:🐻 wolf:🐺 deer:🦌 zebra:🦓 monkey:🐒 panda:🐼 koala:🐨 whale:🐋 dolphin:🐬 octopus:🐙 turtle:🐢 lizard:🦎 snail:🐌 worm:🪱 parrot:🦜 penguin:🐧 duckling:🐥 puppy:🐶 kitten:🐱 mouse:🐭 hamster:🐹 elephant:🐘 giraffe:🦒 hippo:🦛 kangaroo:🦘 crocodile:🐊 seal:🦭 owl:🦉 eagle:🦅 swan:🦢 bat:🦇'),
+  ...bank('noun', 'bugs and small creatures', 'ant:🐜 beetle:🪲 ladybug:🐞 butterfly:🦋 caterpillar:🐛 cricket:🦗 fly:🪰 snail:🐌 slug:🐌 jellyfish:🪼 shrimp:🦐 lobster:🦞'),
+  ...bank('noun', 'food', 'bread:🍞 soup:🍲 rice:🍚 pasta:🍝 pizza:🍕 salad:🥗 sandwich:🥪 taco:🌮 noodle:🍜 cookie:🍪 pie:🥧 candy:🍬 honey:🍯 butter:🧈 lemon:🍋 banana:🍌 grape:🍇 melon:🍈 cherry:🍒 plum:🍑 pear:🍐 orange:🍊 tomato:🍅 potato:🥔 onion:🧅 pepper:🫑 bean:🫘 pea:🫛 corn:🌽 waffle:🧇 pancake:🥞 juice:🧃 tea:🍵'),
+  ...bank('noun', 'body', 'head:🙂 hand:✋ arm:💪 leg:🦵 foot:🦶 toe:🦶 knee:🦵 nose:👃 ear:👂 eye:👁️ mouth:👄 lip:👄 tooth:🦷 tongue:👅 hair:💇 neck:🧣 chin:🙂 thumb:👍 finger:☝️ heart:❤️ brain:🧠 bone:🦴 skin:✋ chest:👕 back:🔙'),
+  ...bank('noun', 'clothes', 'shirt:👕 dress:👗 skirt:👗 pants:👖 shorts:🩳 socks:🧦 shoes:👟 boots:🥾 coat:🧥 jacket:🧥 scarf:🧣 gloves:🧤 cap:🧢 belt:👖 pocket:👖 button:🔘 zipper:🤐 pajamas:👕'),
+  ...bank('noun', 'home', 'house:🏠 room:🚪 door:🚪 window:🪟 wall:🧱 floor:🟫 roof:🏠 bed:🛏️ chair:🪑 table:🍽️ sofa:🛋️ lamp:💡 clock:⏰ sink:🚰 bath:🛁 towel:🧻 soap:🧼 brush:🪥 comb:🪮 cup:☕ plate:🍽️ bowl:🥣 spoon:🥄 fork:🍴 knife:🔪 oven:♨️ fridge:🧊 stairs:🪜 garden:🌻 fence:🚧'),
+  ...bank('noun', 'school', 'pen:🖊️ pencil:✏️ crayon:🖍️ paper:📄 book:📕 bag:🎒 desk:🪑 ruler:📏 glue:🧴 paint:🎨 brush:🖌️ chalk:🧑‍🏫 map:🗺️ globe:🌍 class:🏫 teacher:🧑‍🏫 lesson:📚 test:📝 lunch:🥪 bell:🔔'),
+  ...bank('noun', 'toys and play', 'ball:⚽ doll:🪆 kite:🪁 drum:🥁 game:🎲 puzzle:🧩 block:🧱 swing:🛝 slide:🛝 robot:🤖 teddy:🧸 balloon:🎈 bubble:🫧 crayon:🖍️ card:🃏 sled:🛷 skates:⛸️'),
+  ...bank('noun', 'vehicles', 'car:🚗 bus:🚌 van:🚐 truck:🚚 train:🚂 tram:🚋 plane:✈️ jet:🛩️ ship:🚢 boat:⛵ raft:🛶 bike:🚲 scooter:🛴 rocket:🚀 taxi:🚕 tractor:🚜 helicopter:🚁 sub:🚢'),
+  ...bank('noun', 'weather and sky', 'sun:☀️ moon:🌙 star:⭐ cloud:☁️ rain:🌧️ snow:❄️ wind:💨 storm:⛈️ rainbow:🌈 fog:🌫️ ice:🧊 frost:❄️ thunder:⛈️ sky:🌌 planet:🪐 comet:☄️'),
+  ...bank('noun', 'nature', 'flower:🌸 rose:🌹 grass:🌱 bush:🌳 log:🪵 stick:🪵 stone:🪨 pond:🦆 lake:🏞️ sea:🌊 shell:🐚 beach:🏖️ hill:⛰️ forest:🌲 cave:🕳️ mud:🟫 dirt:🟫 seed:🌱 root:🌱 nut:🌰 acorn:🌰 pine:🌲 mushroom:🍄 wave:🌊'),
+  ...bank('noun', 'people', 'mom:👩 dad:👨 baby:👶 sister:👧 brother:👦 aunt:👩 uncle:👨 grandma:👵 grandpa:👴 friend:🧒 doctor:🧑‍⚕️ nurse:🧑‍⚕️ farmer:🧑‍🌾 baker:🧑‍🍳 pilot:🧑‍✈️ artist:🧑‍🎨 singer:🧑‍🎤 driver:🧑 vet:🧑‍⚕️ firefighter:🧑‍🚒 astronaut:🧑‍🚀 scientist:🧑‍🔬'),
+  ...bank('noun', 'shapes and numbers', 'circle:⭕ square:🟥 triangle:🔺 star:⭐ heart:❤️ line:➖ dot:⚫ one:1️⃣ two:2️⃣ three:3️⃣ four:4️⃣ five:5️⃣ six:6️⃣ seven:7️⃣ eight:8️⃣ nine:9️⃣ ten:🔟'),
+  ...bank('noun', 'music and art', 'song:🎵 drum:🥁 bell:🔔 horn:📯 harp:🎼 flute:🪈 piano:🎹 guitar:🎸 band:🎺 paint:🎨 picture:🖼️ clay:🏺 dance:💃'),
+  ...bank('verb', 'moving', 'walk jog skip leap twirl bend stretch kick throw catch roll bounce float sink fly crawl tiptoe stomp wiggle wobble'),
+  ...bank('verb', 'sports and play', 'play kick throw catch swing slide build win race score dribble bat pitch splash'),
+  ...bank('verb', 'saying', 'say tell ask call sing hum laugh giggle cry scream roar bark meow buzz chirp quack honk growl'),
+  ...bank('verb', 'senses', 'see look watch hear listen smell sniff taste feel touch'),
+  ...bank('verb', 'cooking', 'cook bake mix stir pour cut chop peel boil fry melt toast'),
+  ...bank('verb', 'school and thinking', 'read write draw spell count add learn know think remember forget guess plan solve find'),
+  ...bank('verb', 'everyday', 'wake wash brush dress eat drink rest nap sleep dream clean sweep help share give take open close shut fill empty carry lift push pull'),
+  ...bank('adjective', 'size', 'little large giant wide narrow deep shallow fat skinny'),
+  ...bank('adjective', 'colour', 'blue yellow orange purple gray gold silver'),
+  ...bank('adjective', 'shape and texture', 'round flat square pointy bumpy fluffy fuzzy sticky slimy rough soft hard smooth shiny'),
+  ...bank('adjective', 'weather', 'sunny rainy windy snowy cloudy foggy stormy chilly warm hot cold'),
+  ...bank('adjective', 'feelings', 'proud shy scared brave calm cross cheerful lonely excited tired bored curious'),
+  ...bank('adjective', 'taste and smell', 'sweet sour salty bitter spicy yummy stinky fresh'),
+  ...bank('adjective', 'how many', 'one two three few many lots some all every each both no'),
+  ...bank('adjective', 'how it is', 'new old clean dirty full empty open shut wet dry loud quiet easy hard right wrong'),
+  ...bank('adverb', 'how', 'gently carefully kindly bravely happily quietly neatly'),
+  ...bank('adverb', 'when', 'now then soon later today tomorrow yesterday always never often sometimes'),
+  ...bank('adverb', 'where', 'here there up down inside outside away home'),
   ...bank('little', 'little words', 'the a an and but in on at of to with for from up'),
-]
+].filter((w, i, all) => all.findIndex((x) => x.word === w.word && x.pos === w.pos && x.category === w.category) === i)
 
-export const BANK_BY_WORD = new Map(WORD_BANK.map((w) => [w.word, w]))
+export const BANK_BY_WORD = new Map<string, BankWord>()
+for (const w of WORD_BANK) if (!BANK_BY_WORD.has(w.word)) BANK_BY_WORD.set(w.word, w)
 
 export const POS_LABEL: Record<Pos, { label: string; icon: string; underline: string; help: string }> = {
   noun: { label: 'Noun', icon: '◻', underline: 'pos-noun', help: 'A naming word: a person, animal, place or thing.' },
@@ -145,6 +188,41 @@ export const VOCAB: VocabWord[] = [
   v('orbit', 'verb', 'to travel around something in space', 'The moon orbits Earth. | Satellites orbit the planet.', { tier: 3, subject: 'science' }),
   v('inventor', 'noun', 'a person who makes something new that did not exist before', 'The inventor built a flying bike. | Who was the inventor of the phone?', { tier: 2 }),
   v('clockwork', 'noun', 'gears and springs that make something move when you wind it up', 'The clockwork mouse ran across the floor. | Wind up the clockwork key.'),
+  v('adapt', 'verb', 'to change to fit a new place or problem', 'Animals adapt to the cold. | We adapted our plan when it rained.'),
+  v('hibernation', 'noun', 'a deep winter rest that saves energy', 'Bears go into hibernation. | Hibernation lasts all winter.', { tier: 3, subject: 'science' }),
+  v('migration', 'noun', 'a long trip animals make when the seasons change', 'The migration of geese is amazing. | Whales make a long migration.', { tier: 3, subject: 'science' }),
+  v('energy', 'noun', 'the power needed to move, grow or work', 'Food gives us energy. | The sun sends energy to Earth.', { tier: 3, subject: 'science' }),
+  v('lantern', 'noun', 'a lamp you can carry', 'We hung a lantern in the tent. | The lantern glowed orange.'),
+  v('detective', 'noun', 'a person who looks for clues to solve a mystery', 'The detective found a footprint. | Be a word detective!'),
+  v('relief', 'noun', 'the good feeling when a worry is over', 'What a relief to find my shoe! | She sighed with relief.'),
+  v('cozy', 'adjective', 'warm, soft and comfortable', 'The cat curled up in a cozy bed. | It is cozy by the fire.', { synonyms: ['snug', 'comfy'] }),
+  v('gloomy', 'adjective', 'dark and a bit sad', 'It was a gloomy, rainy day. | The cave was gloomy.', { synonyms: ['dull', 'dim'], antonyms: ['bright', 'cheerful'] }),
+  v('cheerful', 'adjective', 'happy and full of good feeling', 'She gave a cheerful wave. | The room was bright and cheerful.', { synonyms: ['happy', 'jolly'], antonyms: ['gloomy'] }),
+  v('clumsy', 'adjective', 'often bumping into or dropping things', 'The clumsy puppy tripped over its paws. | I felt clumsy on skates.', { antonyms: ['graceful'] }),
+  v('graceful', 'adjective', 'moving in a smooth and beautiful way', 'The swan is graceful. | She did a graceful spin.', { antonyms: ['clumsy'] }),
+  v('generous', 'adjective', 'happy to give and share', 'It was generous to share your snack. | Grandpa is very generous.', { synonyms: ['kind', 'giving'], antonyms: ['selfish'] }),
+  v('patient', 'adjective', 'able to wait calmly', 'Be patient while the cake bakes. | A patient fisher waits all day.', { antonyms: ['impatient'] }),
+  v('honest', 'adjective', 'telling the truth', 'An honest friend tells you the truth. | Please give an honest answer.', { synonyms: ['truthful'] }),
+  v('determined', 'adjective', 'not giving up, even when it is hard', 'She was determined to finish the race. | The determined ant carried the crumb.', { synonyms: ['stubborn', 'keen'] }),
+  v('anxious', 'adjective', 'worried about what might happen', 'I felt anxious before my test. | The anxious dog paced up and down.', { synonyms: ['nervous', 'worried'], antonyms: ['calm'] }),
+  v('astonished', 'adjective', 'very, very surprised', 'We were astonished by the magic trick. | He looked astonished.', { synonyms: ['amazed', 'surprised'] }),
+  v('dash', 'verb', 'to run very quickly for a short way', 'Dash to the door! | The mouse dashed under the bed.', { synonyms: ['rush', 'sprint'] }),
+  v('tumble', 'verb', 'to fall over and roll', 'The puppies tumble in the grass. | The apples tumbled out of the bag.'),
+  v('peer', 'verb', 'to look closely because it is hard to see', 'We peered into the dark cave. | She peered through the fog.', { synonyms: ['peek', 'squint'] }),
+  v('gaze', 'verb', 'to look at something for a long time', 'We gazed at the stars. | The cat gazed at the fish tank.', { synonyms: ['stare'] }),
+  v('whisper', 'verb', 'to speak very softly', 'Whisper the secret to me. | The leaves whispered in the wind.', { antonyms: ['shout'] }),
+  v('mutter', 'verb', 'to speak quietly and unclearly, often when cross', 'He muttered under his breath. | Stop muttering and speak up!', { synonyms: ['mumble'] }),
+  v('soar', 'verb', 'to fly high in the air', 'Eagles soar over the mountains. | Our kite soared up.', { synonyms: ['glide', 'fly'] }),
+  v('crumble', 'verb', 'to break into small pieces', 'The cookie crumbled in my hand. | Old walls crumble.'),
+  v('vast', 'adjective', 'very, very wide or big', 'The ocean is vast. | A vast desert stretched ahead.', { synonyms: ['huge', 'enormous'], antonyms: ['tiny'] }),
+  v('ordinary', 'adjective', 'normal, nothing special', 'It was an ordinary Tuesday. | An ordinary rock turned out to be a fossil.', { antonyms: ['unusual', 'peculiar'] }),
+  v('fossil', 'noun', 'the shape of a very old plant or animal kept in rock', 'We found a fossil of a shell. | Dinosaur fossils are millions of years old.', { tier: 3, subject: 'science' }),
+  v('desert', 'noun', 'a very dry place with little rain', 'Camels live in the desert. | The desert is hot by day and cold at night.', { tier: 3, subject: 'geography' }),
+  v('continent', 'noun', 'one of the seven very large areas of land on Earth', 'Africa is a continent. | We live on the continent of North America.', { tier: 3, subject: 'geography' }),
+  v('equal', 'adjective', 'the same in size, number or amount', 'Cut the cake into equal pieces. | Two plus two is equal to four.', { tier: 3, subject: 'maths' }),
+  v('measure', 'verb', 'to find out the size or amount of something', 'Measure the table with a ruler. | We measure rain in a jar.', { tier: 3, subject: 'maths' }),
+  v('pattern', 'noun', 'something that repeats in a regular way', 'Red, blue, red, blue is a pattern. | Zebras have a striped pattern.', { tier: 3, subject: 'maths' }),
+  v('rhythm', 'noun', 'a regular beat in music or words', 'Clap the rhythm of the song. | Poems have rhythm.', { tier: 3, subject: 'arts' }),
 ]
 export const VOCAB_BY_WORD = new Map(VOCAB.map((x) => [x.word, x]))
 
@@ -194,6 +272,26 @@ export const HOMOPHONES: { words: string[]; sentences: { text: string; answer: s
     { text: 'We need ___ to bake bread.', answer: 'flour' },
     { text: 'A bee sat on the ___.', answer: 'flower' },
   ] },
+  { words: ['for', 'four'], sentences: [
+    { text: 'A dog has ___ legs.', answer: 'four' },
+    { text: 'This gift is ___ you.', answer: 'for' },
+  ] },
+  { words: ['one', 'won'], sentences: [
+    { text: 'I have ___ brother.', answer: 'one' },
+    { text: 'Our team ___ the game!', answer: 'won' },
+  ] },
+  { words: ['blue', 'blew'], sentences: [
+    { text: 'The sky is ___.', answer: 'blue' },
+    { text: 'The wind ___ my hat away.', answer: 'blew' },
+  ] },
+  { words: ['sun', 'son'], sentences: [
+    { text: 'The ___ is hot today.', answer: 'sun' },
+    { text: 'The king had a ___ and a daughter.', answer: 'son' },
+  ] },
+  { words: ['ate', 'eight'], sentences: [
+    { text: 'A spider has ___ legs.', answer: 'eight' },
+    { text: 'I ___ all my peas.', answer: 'ate' },
+  ] },
   { words: ['which', 'witch'], sentences: [
     { text: '___ cup is yours?', answer: 'which' },
     { text: 'The ___ had a black cat.', answer: 'witch' },
@@ -209,6 +307,10 @@ export const SHADES: { label: string; words: string[] }[] = [
   { label: 'How fast?', words: ['stroll', 'walk', 'jog', 'sprint'] },
   { label: 'How wet?', words: ['damp', 'wet', 'soaked', 'drenched'] },
   { label: 'How angry?', words: ['annoyed', 'cross', 'angry', 'furious'] },
+  { label: 'How cold?', words: ['cool', 'chilly', 'cold', 'freezing'] },
+  { label: 'How tired?', words: ['sleepy', 'tired', 'weary', 'exhausted'] },
+  { label: 'How good?', words: ['okay', 'good', 'great', 'amazing'] },
+  { label: 'How surprised?', words: ['surprised', 'amazed', 'astonished'] },
 ]
 
 export const CONTEXT_CLUES: { sentence: string; word: string; options: string[]; answer: number; clue: string }[] = [
@@ -220,6 +322,12 @@ export const CONTEXT_CLUES: { sentence: string; word: string; options: string[];
   { sentence: 'The stubborn mule would not move, no matter how much we pulled.', word: 'stubborn', options: ['not willing to change', 'very small', 'kind'], answer: 0, clue: 'would not move, no matter how much we pulled' },
   { sentence: 'Owls are nocturnal, so they sleep all day and hunt at night.', word: 'nocturnal', options: ['awake at night', 'able to swim', 'very large'], answer: 0, clue: 'sleep all day and hunt at night' },
   { sentence: 'The magician waved his hand and the coin seemed to vanish into thin air.', word: 'vanish', options: ['grow', 'disappear', 'shine'], answer: 1, clue: 'into thin air' },
+  { sentence: 'The clumsy puppy tripped over its own paws and knocked over the bowl.', word: 'clumsy', options: ['often tripping or dropping things', 'very fast', 'very quiet'], answer: 0, clue: 'tripped over its own paws' },
+  { sentence: 'The desert was so vast that we walked all day and still could not see the end.', word: 'vast', options: ['very small', 'very wide and big', 'very wet'], answer: 1, clue: 'walked all day and still could not see the end' },
+  { sentence: 'Grandpa is generous; he always shares his snacks and gives gifts.', word: 'generous', options: ['happy to give and share', 'grumpy', 'very old'], answer: 0, clue: 'shares his snacks and gives gifts' },
+  { sentence: 'We were astonished when the tiny seed grew into a giant sunflower overnight.', word: 'astonished', options: ['bored', 'very surprised', 'sleepy'], answer: 1, clue: 'tiny seed grew into a giant sunflower overnight' },
+  { sentence: 'Be patient: the cookies need ten more minutes, so please wait calmly.', word: 'patient', options: ['able to wait calmly', 'very hungry', 'in a hurry'], answer: 0, clue: 'please wait calmly' },
+  { sentence: 'We peered into the dark cave, trying hard to see what was inside.', word: 'peered', options: ['looked closely', 'ran away', 'shouted'], answer: 0, clue: 'trying hard to see' },
 ]
 
 /** Nonsense words for "Real or Alien?" are made from these spellings. */

@@ -1,0 +1,66 @@
+{
+  "title": "Tim and Sam",
+  "band": "sprout",
+  "step": "s2",
+  "kind": "story",
+  "genre": "funny",
+  "topics": [
+    "family"
+  ],
+  "series": "First Reads",
+  "number": 1,
+  "cover": "🥁",
+  "color": "#f97316",
+  "names": [
+    "Tim",
+    "Sam"
+  ],
+  "retell": "What did Tim and Sam tap? What did Dad do?",
+  "pages": [
+    {
+      "text": "Tim sat. Sam sat.",
+      "art": "👦👧"
+    },
+    {
+      "text": "Tim and Sam sit in a pit.",
+      "art": "🕳️👦👧"
+    },
+    {
+      "text": "Tim taps a tin. Tap, tap, tap!",
+      "art": "🥫🥁"
+    },
+    {
+      "text": "Sam taps a pan. Tap, tap!",
+      "art": "🍳🥁"
+    },
+    {
+      "text": "Dad naps. Tap, tap, tap!",
+      "art": "😴"
+    },
+    {
+      "text": "Dad is mad!",
+      "art": "😠"
+    },
+    {
+      "text": "Tim and Sam sit. Dad naps.",
+      "art": "👦👧😴"
+    }
+  ],
+  "questions": [
+    {
+      "q": "What did Tim tap?",
+      "options": [
+        "a tin",
+        "a cat",
+        "a mat"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "Why was Dad mad?",
+      "type": "opinion"
+    }
+  ],
+  "id": "tim-and-sam"
+}

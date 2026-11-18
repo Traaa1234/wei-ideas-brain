@@ -32,6 +32,22 @@ npm run build      # static site in dist/ (deploy anywhere; it works from a subf
 4. **The child does the reading.** In "Read myself" mode, help comes one word at a time: tap a word and the word card opens. "Listen & follow" reads harder books aloud with word highlighting. It is labelled clearly and counted separately in progress.
 5. **Encouraging, never punitive.** No lives, no red crosses, no timers and no leaderboards. Spelling Bee scores are private.
 
+### Sound School (phonics tutorial)
+
+Nine short interactive lessons that teach children how to *say* sounds and blend them, so they decode new words instead of memorising them:
+
+1. Letters make sounds: a letter's name vs its sound (b says /b/, not "bee").
+2. Stretchy (mmm, sss) vs bouncy (p, t) sounds, and why you never add "uh" (b, not "buh").
+3. How to make every sound: mouth, tongue and voice cues for all 40 sounds (`src/data/articulation.ts`).
+4. Blend it: the sound-it-out coach. Say each sound with a mouth tip, stretch them together, say it fast.
+5. Two letters, one sound: sh, ch, ee, ai, ar...
+6. Magic e: cap → cape, kit → kite.
+7. Long words: find the vowels, chop, read each chunk.
+8. Heart words: sound out the regular parts, learn only the tricky part.
+9. Say it, don't guess it: what to do when you get stuck.
+
+The same coach is on every word card ("🎓 Coach me").
+
 ### The word card (tap any word)
 
 - **Sounds:** one tile per sound. A dot marks single letters, a bar marks letter teams, and an arc links split digraphs (a_e). Colour shows the sound type, backed up by shape: dotted border means a new sound, double border means schwa, ♥ marks a heart part.
@@ -45,8 +61,8 @@ Computer voices are poor at single phonics sounds. The audio layer (`src/app/aud
 
 ### Word banks
 
-- **Top 300:** the public-domain Dolch lists (220 service words + 95 nouns, in Dolch order, cut at 300). Each word is shown as decodable or as a heart word, and counts as mastered after 8 meetings in books. `npm run rank -- <folder>` re-ranks the list by frequency across any corpus you are licensed to use (it writes `content/top-words.json`).
-- **Parts of speech:** a curated bank of nouns, verbs, adjectives and adverbs in sub-categories (animals, moving verbs, colour adjectives...). Running text is tagged in context with [compromise](https://github.com/spencermountain/compromise), offline. "Word Explorer" mode underlines words by part of speech with different line styles, never colours, so the phonics colours stay clear.
+- **Top words (ranked):** the 1,000 most frequent everyday English words, ranked #1–#1000 by how often they are used (FrequencyWords, OpenSubtitles 2018 counts, CC BY-SA 4.0), filtered for children: no adult or violent words, interjections, names or contraction fragments (`npm run top-words -- <en_50k.txt>` rebuilds `content/top-words.json`). Tabs show the Top 100/300/500/1000; each word shows its rank and whether this reader can sound it out, whether it is a heart word, and whether it is mastered (8+ meetings in books). The public-domain Dolch lists are kept for reference.
+- **Parts of speech:** a curated bank of about 740 words (about 400 nouns, 170 verbs, 130 adjectives, 30 adverbs) in about 40 sub-categories (animals, bugs, food, body, clothes, home, school, toys, vehicles, weather, jobs, shapes and numbers; moving, saying, cooking and thinking verbs; size, colour, texture, weather, feelings and taste adjectives; how/when/where adverbs). Running text is tagged in context with [compromise](https://github.com/spencermountain/compromise), offline. "Word Explorer" mode underlines words by part of speech with different line styles, never colours, so the phonics colours stay clear.
 - **Vocabulary:** a starter set of Tier 2 and subject words with original definitions, examples, synonyms and antonyms.
 - **Collecting words:** readers tap a word while reading and choose "Collect this word"; it goes straight into their Word Collector.
 
@@ -61,7 +77,7 @@ Computer voices are poor at single phonics sounds. The audio layer (`src/app/aud
 | Area | Built |
 |---|---|
 | Engine | Grapheme catalog (about 150 spellings), curriculum (13 Sprout + 3 Explorer steps), pronunciation-based decoder, syllable division (compound, VC/CV, V/CV, VC/V, VCCCV, -le, suffix syllables), word-part splitter with spelling rules, Flesch-Kincaid readability, 35 unit tests |
-| Library | 5 original books: 3 Sprout (steps s3, s7, s13), an Explorer chapter book (3 chapters) and an Explorer non-fiction book with headings, captions, fact boxes and a glossary. Each book is shown as ready (≥ 95% readable), stretch (85–95%) or Listen & follow |
+| Library | 14 original books: 10 Sprout (steps s2, s3, s4, s6, s7, s9, s11 and three at s13, including a poem and a 4-part play to read aloud) and 4 Explorer (two chapter books in the Workshop Mysteries series and two non-fiction books with headings, captions, fact boxes and a glossary). Each book is shown as ready (≥ 95% readable), stretch (85–95%) or Listen & follow |
 | Reader | Read myself / Listen & follow, word card, new-sound underlines, Word Explorer underlines, chapters, resume, "read N times", reading ruler, text size and spacing, dyslexia-friendly font option |
 | After a book | Questions (recall, vocabulary, inference, opinion), "words I collected" by part of speech, retell prompt (Sprout), written response, rating and review, story map / main-idea organiser (Explorer) |
 | Lessons | Listen → Practice → Play → Read → Check for every step, with practice words and sentences picked to be decodable for the child |
@@ -72,10 +88,9 @@ Computer voices are poor at single phonics sounds. The audio layer (`src/app/aud
 ### Not built yet
 
 - **Speech:** read-aloud feedback (speech recognition at word/sentence level), the fluency check (words correct per minute), and the repeated-reading "smoothness" meter.
-- **Content:** poetry, reader's theatre scripts and comic stories; more books (the chapter book is about 400 words, where the spec aims for 2,000+); the full ~500-word Tier 2 list (about 55 so far).
+- **Content:** comic stories; longer chapter books (the spec aims for 2,000+ words each); the full ~500-word Tier 2 list (about 90 so far).
 - **Accounts and services:** accounts and sync, AI-drafted definitions through a server proxy, the MCP server for parents' agents, and teacher mode.
 - **Smaller features:** mouth-shape animations, letter tracing, typing practice, the Heart Word Hunt and Fact Hunt games, and the UK English locale.
-- **The Top 300 order** is Dolch order. The network policy here blocked downloading public-domain children's books to rank by frequency; use `npm run rank` with your own corpus.
 
 ## Privacy
 
@@ -85,4 +100,5 @@ There's no account, no tracking SDK, no ads and no network calls beyond loading 
 
 - The pronouncing dictionary is the [CMU Pronouncing Dictionary](https://github.com/cmusphinx/cmudict) (BSD-style licence, `public/dict/CMUDICT-LICENSE.txt`).
 - The Dolch word lists are public domain.
+- Word frequency ranking: [FrequencyWords](https://github.com/hermitdave/FrequencyWords) by Hermit Dave (OpenSubtitles 2018), content licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The filtered list in `content/top-words.json` is shared under the same licence.
 - All stories, definitions and sentences are original to this project.

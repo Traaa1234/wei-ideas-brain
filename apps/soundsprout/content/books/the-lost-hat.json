@@ -1,0 +1,82 @@
+{
+  "title": "The Lost Hat (a play)",
+  "band": "sprout",
+  "step": "s13",
+  "kind": "script",
+  "genre": "play",
+  "topics": [
+    "friendship",
+    "animals"
+  ],
+  "cover": "🎩",
+  "color": "#be123c",
+  "names": [],
+  "retell": "Read it again with a friend or family member. Each person reads one part. Use your character’s voice!",
+  "pages": [
+    {
+      "text": "Reader: It is a windy morning in the woods.",
+      "art": "🌲💨"
+    },
+    {
+      "text": "Fox: Oh no! The wind took my hat!",
+      "art": "🦊🎩💨"
+    },
+    {
+      "text": "Duck: What hat? A red hat with a green feather?",
+      "art": "🦆❓"
+    },
+    {
+      "text": "Fox: Yes! That is my best hat.",
+      "art": "🦊"
+    },
+    {
+      "text": "Owl: Hoot! I can see a red hat up in the tree.",
+      "art": "🦉🎩🌳"
+    },
+    {
+      "text": "Duck: I will flap up and get it. Flap, flap, flap!",
+      "art": "🦆"
+    },
+    {
+      "text": "Reader: Duck flaps and flaps, but Duck cannot get up so high.",
+      "art": "🦆⬆️"
+    },
+    {
+      "text": "Owl: Let me help. I am good at this.",
+      "art": "🦉"
+    },
+    {
+      "text": "Reader: Owl swoops up and grabs the hat with her feet.",
+      "art": "🦉🎩"
+    },
+    {
+      "text": "Fox: My hat! Thank you, Owl. Thank you, Duck.",
+      "art": "🦊🎩😊"
+    },
+    {
+      "text": "Duck: Next time, tie it on with a string!",
+      "art": "🦆🧵"
+    },
+    {
+      "text": "All: The end!",
+      "art": "🎭"
+    }
+  ],
+  "questions": [
+    {
+      "q": "Who got the hat back?",
+      "options": [
+        "Owl",
+        "Duck",
+        "Fox"
+      ],
+      "answer": 0,
+      "type": "recall"
+    },
+    {
+      "q": "How should Fox sound when the hat blows away?",
+      "type": "opinion"
+    }
+  ],
+  "id": "the-lost-hat"
+}
